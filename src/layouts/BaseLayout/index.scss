@@ -1,0 +1,63 @@
+body {
+  font-family: "Quicksand", sans-serif;
+  display: flex;
+  flex-direction: row;
+  margin: unset;
+
+  #background {
+    position: fixed;
+    background-image: url("/assets/images/uw.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+  }
+
+  .image-shadow {
+    filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.7)) drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.3))
+      drop-shadow(0px 10px 50px rgba(0, 0, 0, 0.2));
+  }
+}
+
+// Light color settings
+body {
+  color: black;
+  background: #ffffff;
+
+  .hover-effect {
+    &:hover {
+      fill: black !important;
+      color: black !important;
+      filter: drop-shadow(1px 1px 3px #c93f63);
+    }
+  }
+}
+
+// Dark color settings
+body.dark {
+  color: white;
+  background: #101010;
+
+  .hover-effect {
+    &:hover {
+      fill: white !important;
+      color: white !important;
+      filter: drop-shadow(2px 4px 6px grey);
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
