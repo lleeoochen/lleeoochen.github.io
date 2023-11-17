@@ -1,0 +1,15 @@
+:root {
+  --font-size-xxl: 40px;
+  --font-size-xl: 30px;
+  --font-size-l: 25px;
+  --font-size-m: 18px;
+}
+
+@media screen and (orientation: portrait) {
+  :root {
+    --font-size-xxl: 35px;
+    --font-size-xl: 25px;
+    --font-size-l: 20px;
+    --font-size-m: 18px;
+  }
+}
