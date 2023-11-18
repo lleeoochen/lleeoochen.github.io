@@ -48,7 +48,7 @@ export const Home = () => {
           <Carousel cards={projects}/>
         </PageSlide>
 
-        <PageSlide ref={musicSlide} style={{ backgroundColor: "#653630f0" }} targetHash="#about">
+        <PageSlide ref={musicSlide} style={{ backgroundColor: "#653630f0" }} targetHash="#career">
           <h1>A little bit about my music talent</h1>
           <Carousel cards={recordings}/>
         </PageSlide>
