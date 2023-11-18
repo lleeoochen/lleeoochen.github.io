@@ -5,6 +5,7 @@ import svgr from "vite-plugin-svgr";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/",
   plugins: [react(), svgr()],
   resolve: { alias: { "@": path.resolve("src/") } },
   build: { rollupOptions: { input: { app: "./index.html" } } }
