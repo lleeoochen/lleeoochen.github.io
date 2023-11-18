@@ -1,0 +1,56 @@
+.page-slide {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 4rem);
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    -webkit-animation: pageSlideAnimation 1s infinite;
+    animation: pageSlideAnimation 1s infinite;
+    cursor: pointer;
+
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+
+    @media screen and (orientation: portrait) {
+      bottom: 200px;
+    }
+
+    img {
+      width: 3rem;
+      height: 3rem;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+@-webkit-keyframes pageSlideAnimation {
+  0% {
+    -webkit-transform: translate(-50%, 0);
+  }
+  50% {
+    -webkit-transform: translate(-50%, 10px);
+  }
+  70% {
+    -webkit-transform: translate(-50%, 0);
+  }
+}
+@keyframes pageSlideAnimation {
+  0% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 10px);
+  }
+  70% {
+    transform: translate(-50%, 0);
+  }
+}

@@ -5,12 +5,7 @@
 	flex-direction: column;
 	justify-content: center;
 	z-index: 1000;
-
-	// border-radius: 5rem;
-	// background-color: #2a2a2a;
-	
-	// backdrop-filter: blur(6px);
-	// -webkit-backdrop-filter: blur(6px);
+	top: 0;
 
 	@media screen and (orientation: portrait) {
 		top: unset;

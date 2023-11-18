@@ -1,0 +1,72 @@
+
+.swiper {
+  position: relative;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 70%;
+  margin: auto;
+  margin-top: 5rem;
+  gap: 2rem;
+  overflow: hidden;
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: black;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+
+    box-shadow:
+      0 4px 8px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    &:hover {
+      color: white;
+      background-color: #b9c8ff;
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 1000;
+  }
+
+  @media screen and (orientation: portrait) {
+    width: 100%;
+  }
+
+  .info-card {
+    width: unset;
+    height: 80%;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    background-color: #6c96ff;
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 5px solid #653630f0;
+
+    .image-text {
+      color: white;
+      width: unset;
+
+      .description {
+        width: 100%;
+        max-width: 500px;
+      }
+    }
+
+    .media {
+      width: unset;
+      // height: 100%;
+
+      img {
+        height: 80%;
+        object-fit: cover;
+      }
+    }
+  }
+}
