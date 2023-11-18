@@ -5,28 +5,28 @@ export const projects: ICard[] = [{
   description: "This is a beautiful chess platform for chess lovers and friends.",
   product: "https://lleeoochen.github.io/web-chess/",
   repository: "https://github.com/lleeoochen/web-chess",
-  image: "/src/assets/images/programming/web-chess.png"
+  image: "/assets/images/programming/web-chess.png"
 
 }, {
   title: "PDF Library",
   description: "This website allows users to conveniently store and view PDF books and sheet music, anywhere.",
   product: "https://lleeoochen.github.io/pdf-library/",
   repository: "https://github.com/lleeoochen/pdf-library",
-  image: "/src/assets/images/programming/pdf-library.png"
+  image: "/assets/images/programming/pdf-library.png"
 
 }, {
   title: "Mahjong Score Tracker",
   description: "This website is built to easily track, compute, and lookup rules for Chinese Mahjong Game.",
   product: "https://weitungchen.com/mahjong/",
   repository: "https://github.com/lleeoochen/mahjong",
-  image: "/src/assets/images/programming/mahjong.png"
+  image: "/assets/images/programming/mahjong.png"
 
 }, {
   title: "UCSB GOLD Digger",
   description: "This is a data analysis website that helps UCSB students determine which classes to signup first before seats run out.",
   product: "https://weitungchen.com/gold-digger/",
   repository: "https://github.com/lleeoochen/gold-digger",
-  image: "/src/assets/images/programming/gold-digger.png"
+  image: "/assets/images/programming/gold-digger.png"
 
 }, {
   title: "Gaucho Rides",
@@ -40,14 +40,14 @@ export const projects: ICard[] = [{
   description: "This website is built to display my side projects, music recordings, and other hobbies.",
   product: "https://weitungchen.com/",
   repository: "https://github.com/lleeoochen/lleeoochen.github.io",
-  image: "/src/assets/images/programming/my-website.png"
+  image: "/assets/images/programming/my-website.png"
 
 }, {
   title: "Chrome Editor",
   description: "You can bring this text editor extension anywhere you go.",
   product: "https://chrome.google.com/webstore/detail/chrome-editor/kefkdcgjkbijkajfmjochhmikmpmkofg?utm_source=chrome-ntp-icon",
   repository: "https://github.com/lleeoochen/chrome-editor",
-  image: "/src/assets/images/programming/chrome-editor.png"
+  image: "/assets/images/programming/chrome-editor.png"
 
 }, {
   title: "Disk Galaxy",
