@@ -19,7 +19,7 @@ export type IWork = {
   location: string;
   time: string;
   logo: string;
-  description: string[];
+  descriptions: string[];
 }
 
 export type ISpotifyEntry = {

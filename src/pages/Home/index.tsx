@@ -5,12 +5,16 @@ import { recordings } from "@/data/recordings";
 import { BasicLayout } from "@/layouts/BasicLayout";
 import { Carousel } from "@/components/Carousel";
 import {
-  useCallback, useRef
+  useCallback, useRef, lazy
 } from "react";
 
 import "./index.scss";
 import { Menu } from "@/components/Menu";
 import { HomePageSlideAnchor } from "@/constants";
+import { workExperiences } from "@/data/workExperiences";
+
+const Card = lazy(() => import("@/components/Card"));
+const WorkCard = lazy(() => import("@/components/WorkCard"));
 
 export const Home = () => {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -53,17 +57,24 @@ export const Home = () => {
         </PageSlide>
 
         <PageSlide ref={programmingSlideRef} style={{ backgroundColor: "#646da3" }} handleNavigate={navigteToMusic}>
-          <h1>A little bit about my programming talent</h1>
-          <Carousel cards={projects}/>
+          <h1>Show me your programming passion...</h1>
+          <Carousel dataList={projects}>
+            {data => <Card {...data}/>}
+          </Carousel>
         </PageSlide>
 
         <PageSlide ref={musicSlideRef} style={{ backgroundColor: "#653630" }} handleNavigate={navigteToAbout}>
-          <h1>A little bit about my music talent</h1>
-          <Carousel cards={recordings}/>
+          <h1>Do you possess any special talents...</h1>
+          <Carousel dataList={recordings}>
+            {data => <Card {...data}/>}
+          </Carousel>
         </PageSlide>
 
         <PageSlide ref={aboutSlideRef} style={{ backgroundColor: "#488ab8" }}>
-          <h1>A little bit about myself</h1>
+          <h1>So, tell me a little bit about yourself...</h1>
+          <Carousel dataList={workExperiences}>
+            {data => <WorkCard {...data}/>}
+          </Carousel>
         </PageSlide>
       </div>
     </BasicLayout>

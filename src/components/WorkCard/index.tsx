@@ -1,74 +1,46 @@
+import { IWork } from "@/types";
 import "./index.scss";
 
-type Props = {
-  title: string;
-  description: string;
-  product?: string;
-  repository?: string;
-  image?: string;
-  video?: string;
-};
-
-
-export type IWork = {
-  title: string;
-  company: string;
-  location: string;
-  time: string;
-  logo: string;
-  description: string[];
-}
+type Props = IWork;
 
 const WorkCard = ({
-  title, description, product, repository, image, video
+  title,
+  company,
+  location,
+  time,
+  logo,
+  descriptions
 }: Props) => {
   return(
-
-    <div className="info-card">
-      <div className="image-text">
-        <div className="title">
+    <div className="work-experience-wrap">
+      <div className="work-experience">
+        <div className="title-main">
           {title}
         </div>
-        <div className="description">
-          {description}
+        <div className="work-content">
+          <div className="metadata-side">
+            <img className="logo" src={logo} />
+            <div className="metadata-info">
+              <div className="company">
+                {company}
+              </div>
+              <div className="location">
+                {location}
+              </div>
+              <div className="time">
+                {time}
+              </div>
+            </div>
+          </div>
+          <div className="description-side">
+            <div className="description">
+              {descriptions.map((paragraph, index) => <div key={index}>{paragraph}</div>)}
+            </div>
+          </div>
         </div>
-        <div className="bottom">
-          {
-            product && (
-              <a className="btn hover-effect" href={product} target="_blank" rel="noreferrer">
-            Visit
-              </a>
-            )
-          }
-          {
-            repository && (
-              <a className="btn hover-effect" href={repository} target="_blank" rel="noreferrer">
-            GitHub
-              </a>
-            )
-          }
-        </div>
-      </div>
-      <div className="media image-shadow">
-        {
-          image && (
-            <a href={product} target="_blank" rel="noreferrer">
-              <img src={image} loading="lazy"/>
-            </a>
-          )
-        }
-        {
-          video && (
-            <iframe
-              loading="lazy"
-              title="video"
-              src={video}
-              allowFullScreen
-            />
-          )
-        }
       </div>
     </div>
-  );};
+  );
+};
 
 export default WorkCard;

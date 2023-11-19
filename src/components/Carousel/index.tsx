@@ -9,17 +9,17 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { ICard } from "@/types";
-import { lazy } from "react";
 import "./index.scss";
 
-type Props = {
-  cards: ICard[];
+type Props<T extends object> = {
+  dataList: T[];
+  children(data: T): React.ReactNode;
 };
 
-const Card = lazy(() => import("@/components/Card"));
 
-export const Carousel = ({ cards }:Props) => {
+export const Carousel = <T extends object>({
+  dataList, children
+}: Props<T>) => {
   const isPortrait = window.innerHeight > window.innerWidth;
 
   return (
@@ -32,9 +32,9 @@ export const Carousel = ({ cards }:Props) => {
     }} centeredSlides slidesPerView={isPortrait ? 1 : 3}
     modules={[Navigation, Pagination, EffectCoverflow]} pagination>
       {
-        cards.map((card, index) => (
+        dataList.map((data, index) => (
           <SwiperSlide key={index}>
-            <Card {...card} />
+            {children(data)}
           </SwiperSlide>
         ))
       }

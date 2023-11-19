@@ -1,21 +1,21 @@
 import { IWork } from "@/types";
 
-export const workData: IWork[] = [
+export const workExperiences: IWork[] = [
   {
-    title: "FRONTEND ENGINEER",
+    title: "Frontend Engineer",
     company: "Amazon (AWS)",
     location: "Seattle, WA",
     time: "Aug 2022 - Present",
-    logo: "/assets/images/companies/aws.jpg",
-    description: ["TBD"]
+    logo: "/src/assets/images/companies/aws.jpg",
+    descriptions: ["TBD"]
 
   }, {
-    title: "SOFTWARE ENGINEER",
+    title: "Software Engineer",
     company: "Redfin",
     location: "Seattle, WA",
     time: "Aug 2020 - Aug 2022",
-    logo: "/assets/images/companies/redfin.jpg",
-    description: [
+    logo: "/src/assets/images/companies/redfin.jpg",
+    descriptions: [
       "SLO (Service Level Objective) Dashboard",
       "❖ Led the frontend development for Redfin’s first SLO Dashboard from scratch, and since release, it has been used by every team at Redfin to visualize and tune their features’ SLOs.",
       "❖ Developed reusable React components and Reflux stores to propagate dynamic SLO data to datatables and graphs, while handling user interactions with the dashboard such as form submission and table filtering.",
@@ -30,31 +30,31 @@ export const workData: IWork[] = [
       "❖ Developed Python scripts to aggregate disk usage data from Elasticsearch API, auto-delete log indices based on the quota configuration, and report important metrics to monitor the disk health for each service and the logging platform."
     ]
   }, {
-    title: "SOFTWARE ENGINEER INTERN",
+    title: "Software Engineer Intern",
     company: "Redfin",
     location: "Seattle, WA",
     time: "Jun – Sep 2019",
-    logo: "/assets/images/companies/redfin.jpg",
-    description: [
+    logo: "/src/assets/images/companies/redfin.jpg",
+    descriptions: [
       "❖ Built a SSH-certificate system that replaced hardcoded password with a secure SSH access to test machines, including various levels of access restriction and access log history.",
       "❖ Developed scripts for automating managerial approval and access granting process, through calling Slack APIs and auto-generating SSH certificates."
     ]
   }, {
-    title: "SOFTWARE ENGINEER INTERN",
+    title: "Software Engineer Intern",
     company: "ProDIGIQ",
     location: "Thousand Oaks, CA",
     time: "Jun – Sep 2018",
-    logo: "/assets/images/companies/prodigiq.jpg",
-    description: [
+    logo: "/src/assets/images/companies/prodigiq.jpg",
+    descriptions: [
       "❖ Developed a web tool that allows engineers to visually draw polygon markups on airport maps instead of manually crunching latlng coordinates into the database."
     ]
   }, {
-    title: "SOFTWARE ENGINEER INTERN",
+    title: "Software Engineer Intern",
     company: "Lacework",
     location: "Mountain View, CA",
     time: "Jul – Sep 2017",
-    logo: "/assets/images/companies/lacework.jpg",
-    description: [
+    logo: "/src/assets/images/companies/lacework.jpg",
+    descriptions: [
       "❖ Built the first testing framework for Lacework engineers to automatically test and validate backend API calls against the db schema, all through a simple webpage that allows engineers to run tests with customizations on different test scopes, parameters, and testing frequency."
     ]
   }

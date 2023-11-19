@@ -6,6 +6,8 @@ import {
 } from "react-router-dom";
 import { Home } from "@/pages/Home";
 
+import "@/common/styles/typography.scss";
+
 const router = createBrowserRouter([
   {
     path: "/",

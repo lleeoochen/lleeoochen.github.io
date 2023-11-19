@@ -21,22 +21,25 @@
 }
 
 .info-card {
-  display: flex;
-  flex-direction: var(--direction);
-  justify-content: space-between;
-  gap: 2rem;
-  width: 100%;
+  height: 80%;
   min-height: 400px;
+  border-radius: 1rem;
+  padding: 2rem;
 
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   text-align: left;
-  padding: var(--card-margin-size);
-  border-radius: calc(var(--card-margin-size) / 3);
+  align-items: left;
+  gap: 2rem;
+
+  a {
+    color: black;
+  }
 
   .image-text {
-    width: 35%;
-
     .title {
-      font-size: var(--card-title-size);
+      font-size: var(--font-size-xl);
       margin-bottom: 30px;
 
       @media screen and (orientation: portrait) {
@@ -47,21 +50,18 @@
     .description {
       font-size: var(--card-text-size);
       margin-bottom: var(--card-margin-size);
+      width: 100%;
+      max-width: 500px;
     }
   }
 
   .media {
-    width: 65%;
     max-width: 30rem;
     margin-top: 0;
     margin-bottom: 30px;
-    // background: #e57a983b;
     border-radius: 15px;
 
     iframe {
-      // width: 100%;
-      // height: 100%;
-      // max-width: 100%;
       border-radius: 15px;
 
       @media screen and (orientation: portrait) {
@@ -72,7 +72,8 @@
 
     a,
     a img {
-      height: 100%;
+      height: 80%;
+      object-fit: cover;
     }
 
     img {
@@ -95,60 +96,6 @@
       font-size: var(--card-text-size);
       padding: calc(var(--card-margin-size) / 4);
       border-radius: calc(var(--card-margin-size) / 15);
-    }
-  }
-}
-
-@media screen and (orientation: portrait) {
-  .info-card {
-    display: flex;
-    flex-direction: var(--direction);
-    justify-content: space-between;
-    gap: 1rem;
-    width: 100%;
-
-    text-align: left;
-    padding: var(--card-margin-size);
-    border-radius: calc(var(--card-margin-size) / 3);
-    /* scroll-snap-align: start; */
-
-    .image-text {
-      width: 100%;
-    }
-
-    .media {
-      width: 100%;
-
-      iframe {
-        min-height: unset;
-      }
-    }
-  }
-}
-
-/* Light color settings */
-body {
-  .info-card {
-    color: black;
-  }
-
-  .bottom {
-    .btn {
-      color: #585858;
-    }
-  }
-}
-
-/* Dark color settings */
-body.dark {
-  .info-card {
-    color: white;
-  }
-
-  .bottom {
-    .btn {
-      background-image: linear-gradient(#00000000 95%, #8c8c8c 5%);
-      color: #8c8c8c;
     }
   }
 }

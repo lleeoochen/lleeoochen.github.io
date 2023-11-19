@@ -20,45 +20,17 @@
   @media screen and (orientation: portrait) {
     width: 100%;
   }
-  
-  .swiper-slide-active {
-    .info-card {
-      background-color: #ffffff;
 
-      .image-text {
-        color: black;
-      }
+  .swiper-slide {
+    & > div {
+      background-color: #f7f7f72c;
     }
   }
-
-  .info-card {
-    width: unset;
-    height: 80%;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    background-color: #f7f7f72c;
-    border-radius: 1rem;
-    padding: 1rem;
-
-    .image-text {
-      color: white;
-      width: unset;
-
-      .description {
-        width: 100%;
-        max-width: 500px;
-      }
-    }
-
-    .media {
-      width: unset;
-      // height: 100%;
-
-      img {
-        height: 80%;
-        object-fit: cover;
-      }
+  
+  .swiper-slide-active {
+    & > div {
+      background-color: #ffffff;
+      color: black;
     }
   }
 }
