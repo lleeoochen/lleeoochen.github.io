@@ -30,7 +30,7 @@ export const Carousel = ({ cards }:Props) => {
       modifier: 1,
       slideShadows: false
     }} centeredSlides slidesPerView={isPortrait ? 1 : 3}
-    modules={[Navigation, Pagination, EffectCoverflow]} navigation={!isPortrait}>
+    modules={[Navigation, Pagination, EffectCoverflow]} pagination>
       {
         cards.map((card, index) => (
           <SwiperSlide key={index}>

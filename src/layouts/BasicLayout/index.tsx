@@ -1,5 +1,4 @@
 import React from "react";
-import { Menu } from "@/components/Menu";
 import { Background } from "@/components/Background";
 import "./index.scss";
 
@@ -12,7 +11,6 @@ export const BasicLayout = ({ children }: Props) => {
     <>
       <Background/>
       {children}
-      <Menu />
     </>
   );
 };

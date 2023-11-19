@@ -4,13 +4,13 @@ import "./index.scss";
 
 type Props = {
   style?: React.CSSProperties;
-  targetHash?: string;
+  handleNavigate?: () => void;
   children: React.ReactNode;
 };
 
 export const PageSlide = forwardRef<HTMLDivElement, Props>(function PageSlide (props, ref) {
   const {
-    style, children, targetHash
+    style, children, handleNavigate
   } = props;
   const isPortrait = window.innerHeight > window.innerWidth;
 
@@ -18,8 +18,8 @@ export const PageSlide = forwardRef<HTMLDivElement, Props>(function PageSlide (p
     <div ref={ref} className="page-slide" style={style}>
       {children}
       {
-        targetHash && !isPortrait && (
-          <a href={targetHash} className="scroll-indicator">
+        handleNavigate && !isPortrait && (
+          <a className="scroll-indicator" onClick={handleNavigate}>
             <img src={downArrowSvg} alt="scroll" />
           </a>
         )

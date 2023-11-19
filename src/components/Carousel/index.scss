@@ -1,4 +1,3 @@
-
 .swiper {
   position: relative;
   flex-direction: column;
@@ -8,23 +7,7 @@
   margin-top: 5rem;
   gap: 2rem;
   overflow: hidden;
-
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: black;
-    background-color: white;
-    padding: 1rem;
-    border-radius: 1rem;
-
-    box-shadow:
-      0 4px 8px 0 rgba(0, 0, 0, 0.2),
-      0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-    &:hover {
-      color: white;
-      background-color: #b9c8ff;
-    }
-  }
+  height: 60vh;
 
   &:before {
     content: "";
@@ -37,6 +20,16 @@
   @media screen and (orientation: portrait) {
     width: 100%;
   }
+  
+  .swiper-slide-active {
+    .info-card {
+      background-color: #ffffff;
+
+      .image-text {
+        color: black;
+      }
+    }
+  }
 
   .info-card {
     width: unset;
@@ -44,10 +37,9 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
-    background-color: #6c96ff;
+    background-color: #f7f7f72c;
     border-radius: 1rem;
     padding: 1rem;
-    border: 5px solid #653630f0;
 
     .image-text {
       color: white;

@@ -4,56 +4,61 @@ import { projects } from "@/data/projects";
 import { recordings } from "@/data/recordings";
 import { BasicLayout } from "@/layouts/BasicLayout";
 import { Carousel } from "@/components/Carousel";
-import {
-  useEffect, useRef
-} from "react";
+import { useCallback } from "react";
 
 import "./index.scss";
-import { useLocation } from "react-router-dom";
+import { Menu } from "@/components/Menu";
+import { HomePageSlideAnchor } from "@/constants";
 
 export const Home = () => {
-  const homeSlide = useRef<HTMLDivElement>(null);
-  const aboutSlide = useRef<HTMLDivElement>(null);
-  const programmingSlide = useRef<HTMLDivElement>(null);
-  const musicSlide = useRef<HTMLDivElement>(null);
-
-  const { hash } = useLocation();
-
-  useEffect(() => {
-    switch (hash) {
-    case "#home":
-      homeSlide.current?.scrollIntoView({ behavior: "smooth" });
+  const handleNavigate = useCallback((anchor: HomePageSlideAnchor) => {
+    switch (anchor) {
+    case HomePageSlideAnchor.HOME:
+      window.scrollTo({
+        top: 0, behavior: "smooth"
+      });
       break;
-    case "#programming":
-      programmingSlide.current?.scrollIntoView({ behavior: "smooth" });
+    case HomePageSlideAnchor.PROGRAMMING:
+      window.scrollTo({
+        top: window.innerHeight * 1, behavior: "smooth"
+      });
       break;
-    case "#music":
-      musicSlide.current?.scrollIntoView({ behavior: "smooth" });
+    case HomePageSlideAnchor.MUSIC:
+      window.scrollTo({
+        top: window.innerHeight * 2, behavior: "smooth"
+      });
       break;
-    case "#career":
-      aboutSlide.current?.scrollIntoView({ behavior: "smooth" });
+    case HomePageSlideAnchor.ABOUT:
+      window.scrollTo({
+        top: window.innerHeight * 3, behavior: "smooth"
+      });
       break;
     };
-  }, [hash]);
+  }, []);
+
+  const navigteToProgramming = useCallback(() => handleNavigate(HomePageSlideAnchor.PROGRAMMING), []);
+  const navigteToMusic = useCallback(() => handleNavigate(HomePageSlideAnchor.MUSIC), []);
+  const navigteToAbout = useCallback(() => handleNavigate(HomePageSlideAnchor.ABOUT), []);
 
   return (
     <BasicLayout>
+      <Menu handleNavigate={handleNavigate}/>
       <div className="content">
-        <PageSlide ref={homeSlide} style={{ backgroundColor: "transparent" }} targetHash="#programming">
+        <PageSlide style={{ backgroundColor: "transparent" }} handleNavigate={navigteToProgramming}>
           <Signature />
         </PageSlide>
 
-        <PageSlide ref={programmingSlide} style={{ backgroundColor: "#0e0e0ef0" }} targetHash="#music">
+        <PageSlide style={{ backgroundColor: "#646da3" }} handleNavigate={navigteToMusic}>
           <h1>A little bit about my programming talent</h1>
           <Carousel cards={projects}/>
         </PageSlide>
 
-        <PageSlide ref={musicSlide} style={{ backgroundColor: "#653630f0" }} targetHash="#career">
+        <PageSlide style={{ backgroundColor: "#653630" }} handleNavigate={navigteToAbout}>
           <h1>A little bit about my music talent</h1>
           <Carousel cards={recordings}/>
         </PageSlide>
 
-        <PageSlide ref={aboutSlide} style={{ backgroundColor: "#488ab8f0" }}>
+        <PageSlide style={{ backgroundColor: "#488ab8" }}>
           <h1>A little bit about myself</h1>
         </PageSlide>
       </div>

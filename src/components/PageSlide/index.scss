@@ -4,7 +4,11 @@
   height: calc(100vh - 4rem);
   padding: 2rem;
   text-align: center;
-  position: relative;
+  // position: relative;
+  position: sticky;
+  top: 0;
+
+  box-shadow: 0px -5px 20px 11px rgba(0, 0, 0, 0.2), 0px -5px 20px 10px rgba(0, 0, 0, 0.19);
 
   .scroll-indicator {
     position: absolute;
