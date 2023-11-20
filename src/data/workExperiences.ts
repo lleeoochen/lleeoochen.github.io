@@ -6,7 +6,7 @@ export const workExperiences: IWork[] = [
     company: "Amazon (AWS)",
     location: "Seattle, WA",
     time: "Aug 2022 - Present",
-    logo: "/src/assets/images/companies/aws.jpg",
+    logo: "/assets/images/companies/aws.jpg",
     descriptions: ["TBD"]
 
   }, {
@@ -14,7 +14,7 @@ export const workExperiences: IWork[] = [
     company: "Redfin",
     location: "Seattle, WA",
     time: "Aug 2020 - Aug 2022",
-    logo: "/src/assets/images/companies/redfin.jpg",
+    logo: "/assets/images/companies/redfin.jpg",
     descriptions: [
       "SLO (Service Level Objective) Dashboard",
       "❖ Led the frontend development for Redfin’s first SLO Dashboard from scratch, and since release, it has been used by every team at Redfin to visualize and tune their features’ SLOs.",
@@ -34,7 +34,7 @@ export const workExperiences: IWork[] = [
     company: "Redfin",
     location: "Seattle, WA",
     time: "Jun – Sep 2019",
-    logo: "/src/assets/images/companies/redfin.jpg",
+    logo: "/assets/images/companies/redfin.jpg",
     descriptions: [
       "❖ Built a SSH-certificate system that replaced hardcoded password with a secure SSH access to test machines, including various levels of access restriction and access log history.",
       "❖ Developed scripts for automating managerial approval and access granting process, through calling Slack APIs and auto-generating SSH certificates."
@@ -44,7 +44,7 @@ export const workExperiences: IWork[] = [
     company: "ProDIGIQ",
     location: "Thousand Oaks, CA",
     time: "Jun – Sep 2018",
-    logo: "/src/assets/images/companies/prodigiq.jpg",
+    logo: "/assets/images/companies/prodigiq.jpg",
     descriptions: [
       "❖ Developed a web tool that allows engineers to visually draw polygon markups on airport maps instead of manually crunching latlng coordinates into the database."
     ]
@@ -53,7 +53,7 @@ export const workExperiences: IWork[] = [
     company: "Lacework",
     location: "Mountain View, CA",
     time: "Jul – Sep 2017",
-    logo: "/src/assets/images/companies/lacework.jpg",
+    logo: "/assets/images/companies/lacework.jpg",
     descriptions: [
       "❖ Built the first testing framework for Lacework engineers to automatically test and validate backend API calls against the db schema, all through a simple webpage that allows engineers to run tests with customizations on different test scopes, parameters, and testing frequency."
     ]
