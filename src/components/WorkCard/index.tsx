@@ -1,9 +1,25 @@
-import { ICard } from "@/types";
 import "./index.scss";
 
-type Props = ICard;
+type Props = {
+  title: string;
+  description: string;
+  product?: string;
+  repository?: string;
+  image?: string;
+  video?: string;
+};
 
-const Card = ({
+
+export type IWork = {
+  title: string;
+  company: string;
+  location: string;
+  time: string;
+  logo: string;
+  description: string[];
+}
+
+const WorkCard = ({
   title, description, product, repository, image, video
 }: Props) => {
   return(
@@ -55,4 +71,4 @@ const Card = ({
     </div>
   );};
 
-export default Card;
+export default WorkCard;

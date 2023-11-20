@@ -33,7 +33,7 @@ export const projects: ICard[] = [{
   description: "This is a cross-platform mobile application that provides a convenient and secure way for UCSB students to arrange rides with peers.",
   product: "",
   repository: "https://github.com/jrecinos98/Gaucho-Rides",
-  video: "https://drive.google.com/file/d/1ry8i-UI3GlmbN253z59SXYoh52atd02e/preview"
+  video: "https://www.youtube.com/embed/yTX2Dp9ae8s"
 
 }, {
   title: "My Personal Website",

@@ -23,7 +23,7 @@ export const Carousel = ({ cards }:Props) => {
   const isPortrait = window.innerHeight > window.innerWidth;
 
   return (
-    <Swiper effect="coverflow" direction="horizontal" loop coverflowEffect={{
+    <Swiper effect="coverflow" direction="horizontal" coverflowEffect={{
       rotate: 30,
       stretch: 0,
       depth: 100,

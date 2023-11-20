@@ -4,34 +4,38 @@ import { projects } from "@/data/projects";
 import { recordings } from "@/data/recordings";
 import { BasicLayout } from "@/layouts/BasicLayout";
 import { Carousel } from "@/components/Carousel";
-import { useCallback } from "react";
+import {
+  useCallback, useRef
+} from "react";
 
 import "./index.scss";
 import { Menu } from "@/components/Menu";
 import { HomePageSlideAnchor } from "@/constants";
 
 export const Home = () => {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const homeSlideRef = useRef<HTMLDivElement>(null);
+  const programmingSlideRef = useRef<HTMLDivElement>(null);
+  const musicSlideRef = useRef<HTMLDivElement>(null);
+  const aboutSlideRef = useRef<HTMLDivElement>(null);
+
   const handleNavigate = useCallback((anchor: HomePageSlideAnchor) => {
+    if (!contentRef.current) {
+      return;
+    }
+
     switch (anchor) {
     case HomePageSlideAnchor.HOME:
-      window.scrollTo({
-        top: 0, behavior: "smooth"
-      });
+      homeSlideRef.current?.scrollIntoView({ behavior: "smooth" });
       break;
     case HomePageSlideAnchor.PROGRAMMING:
-      window.scrollTo({
-        top: window.innerHeight * 1, behavior: "smooth"
-      });
+      programmingSlideRef.current?.scrollIntoView({ behavior: "smooth" });
       break;
     case HomePageSlideAnchor.MUSIC:
-      window.scrollTo({
-        top: window.innerHeight * 2, behavior: "smooth"
-      });
+      musicSlideRef.current?.scrollIntoView({ behavior: "smooth" });
       break;
     case HomePageSlideAnchor.ABOUT:
-      window.scrollTo({
-        top: window.innerHeight * 3, behavior: "smooth"
-      });
+      aboutSlideRef.current?.scrollIntoView({ behavior: "smooth" });
       break;
     };
   }, []);
@@ -43,22 +47,22 @@ export const Home = () => {
   return (
     <BasicLayout>
       <Menu handleNavigate={handleNavigate}/>
-      <div className="content">
-        <PageSlide style={{ backgroundColor: "transparent" }} handleNavigate={navigteToProgramming}>
+      <div ref={contentRef} className="content">
+        <PageSlide ref={homeSlideRef} style={{ backgroundColor: "transparent" }} handleNavigate={navigteToProgramming}>
           <Signature />
         </PageSlide>
 
-        <PageSlide style={{ backgroundColor: "#646da3" }} handleNavigate={navigteToMusic}>
+        <PageSlide ref={programmingSlideRef} style={{ backgroundColor: "#646da3" }} handleNavigate={navigteToMusic}>
           <h1>A little bit about my programming talent</h1>
           <Carousel cards={projects}/>
         </PageSlide>
 
-        <PageSlide style={{ backgroundColor: "#653630" }} handleNavigate={navigteToAbout}>
+        <PageSlide ref={musicSlideRef} style={{ backgroundColor: "#653630" }} handleNavigate={navigteToAbout}>
           <h1>A little bit about my music talent</h1>
           <Carousel cards={recordings}/>
         </PageSlide>
 
-        <PageSlide style={{ backgroundColor: "#488ab8" }}>
+        <PageSlide ref={aboutSlideRef} style={{ backgroundColor: "#488ab8" }}>
           <h1>A little bit about myself</h1>
         </PageSlide>
       </div>

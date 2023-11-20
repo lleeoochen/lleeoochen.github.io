@@ -5,4 +5,10 @@
   margin: auto;
   z-index: 50;
   color: white;
+
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  display: block;
+  position: relative;
 }
