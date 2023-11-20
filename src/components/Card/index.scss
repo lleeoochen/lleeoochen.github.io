@@ -21,8 +21,7 @@
 }
 
 .info-card {
-  height: 80%;
-  min-height: 400px;
+  // height: 80%;
   border-radius: 1rem;
   padding: 2rem;
 
@@ -72,7 +71,6 @@
 
     a,
     a img {
-      height: 80%;
       object-fit: cover;
     }
 
@@ -81,10 +79,11 @@
       width: fit-content;
       max-width: 100%;
       border-radius: 15px;
+      height: 25vh;
 
       @media screen and (orientation: portrait) {
         width: 100%;
-        height: unset;
+        height: 20vh;
       }
     }
   }

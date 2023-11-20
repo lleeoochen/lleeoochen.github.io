@@ -33,7 +33,7 @@ const Card = ({
           }
         </div>
       </div>
-      <div className="media image-shadow">
+      <div className="media">
         {
           image && (
             <a href={product} target="_blank" rel="noreferrer">

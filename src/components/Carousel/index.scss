@@ -9,6 +9,11 @@
   overflow: hidden;
   height: 60vh;
 
+  @media screen and (orientation: portrait) {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
   &:before {
     content: "";
     position: absolute;
@@ -31,6 +36,6 @@
     & > div {
       background-color: #ffffff;
       color: black;
-    }
+  }
   }
 }
