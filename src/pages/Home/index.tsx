@@ -8,9 +8,9 @@ import { useSwipeable } from "react-swipeable";
 export const Home = () => {
   const handlers = useSwipeable({
     onSwipedRight: () => {
-      window.location.href = "/hobbies";
+      window.location.href = "#/hobbies";
     }, onSwipedLeft: () => {
-      window.location.href = "/resume";
+      window.location.href = "#/resume";
     }
   });
 

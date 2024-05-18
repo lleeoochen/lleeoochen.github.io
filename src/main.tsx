@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import {
-  createBrowserRouter, RouterProvider
+  createHashRouter, RouterProvider
 } from "react-router-dom";
 import { Home } from "@/pages/Home";
 
@@ -12,20 +12,20 @@ import { IMenuRoute } from "./types";
 
 export const menuRoutes: IMenuRoute[] = [
   {
-    href: "/hobbies",
+    href: "#/hobbies",
     name: "HOBBIES"
   },
   {
-    href: "/",
+    href: "#/",
     name: "HOME"
   },
   {
-    href: "/resume",
+    href: "#/resume",
     name: "RESUME"
   }
 ];
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Home />
