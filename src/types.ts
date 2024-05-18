@@ -27,3 +27,8 @@ export type ISpotifyEntry = {
   title: string;
   description: string;
 };
+
+export type IMenuRoute = {
+  href: string;
+  name: string;
+};

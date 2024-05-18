@@ -1,0 +1,32 @@
+.hobbies-main-container {
+  margin: 10vh 150px;
+  display: flex;
+
+  @media (orientation: portrait) {
+    margin: 10vh 0;
+  }
+
+  .musical-border {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+
+    @media (orientation: portrait) {
+      display: none;
+    }
+
+    .music-icon {
+      width: 3vw;
+      max-width: 50px;
+    }
+  }
+
+  .content {
+    flex: 1;
+    padding: 0 5vw;
+    display: flex;
+    gap: 5vw;
+    align-items: center;
+  }
+}

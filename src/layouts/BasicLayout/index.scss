@@ -1,43 +1,53 @@
 body {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Palanquin", sans-serif;
   margin: unset;
+  background-color: #F4F4E2;
 
   .image-shadow {
     filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.7)) drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.3))
       drop-shadow(0px 10px 50px rgba(0, 0, 0, 0.2));
   }
-}
 
-// Light color settings
-body {
-  color: black;
-  background: #ffffff;
-
-  .hover-effect {
-    &:hover {
-      fill: black !important;
-      color: black !important;
-      filter: drop-shadow(1px 1px 3px #c93f63);
+  .main-container {
+    margin: 10vh 200px;
+    display: flex;
+  
+    @media (orientation: portrait) {
+      margin: 10vh 0;
     }
-  }
-}
 
-// Dark color settings
-body.dark {
-  color: white;
-  background: #101010;
+    .musical-border {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
 
-  .hover-effect {
-    &:hover {
-      fill: white !important;
-      color: white !important;
-      filter: drop-shadow(2px 4px 6px grey);
+      @media (orientation: portrait) {
+        display: none;
+      }
+
+      .music-icon {
+        width: 3vw;
+        max-width: 50px;
+      }
+    }
+
+    .content {
+      flex: 1;
+      padding: 0 5vw;
+      display: flex;
+      gap: 5vw;
+      align-items: center;
     }
   }
 }
 
 .hidden {
   display: none;
+}
+
+.invisible {
+  visibility: hidden;
 }
 
 .flex-row {

@@ -1,14 +1,33 @@
-.content {
-  width: 100%;
+.home-container {
+  flex: 1;
   display: flex;
-  flex-direction: column;
-  margin: auto;
-  z-index: 50;
-  color: white;
+  gap: 5vw;
+  align-items: center;
 
-  height: 100vh;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
-  display: block;
-  position: relative;
+  @media (orientation: portrait) {
+    flex-direction: column-reverse;
+  }
+
+  @media (orientation: portrait) {
+    margin: 10vh 0;
+  }
+
+  .welcome-title {
+    font-weight: bold;
+    font-size: var(--font-size-xl);
+
+    @media (orientation: portrait) {
+      text-align: center;
+    }
+  }
+
+  .welcome-profile-pic {
+    width: 20vw;
+    height: 20vw;
+
+    @media (orientation: portrait) {
+      width: 50vw;
+      height: 50vw;
+    }
+  }
 }
