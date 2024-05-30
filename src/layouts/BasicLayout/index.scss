@@ -33,11 +33,12 @@ body {
     }
 
     .content {
-      flex: 1;
+      // flex: 1;
       padding: 0 5vw;
-      display: flex;
-      gap: 5vw;
-      align-items: center;
+      width: calc(100% - 15vw);
+      // display: flex;
+      // gap: 5vw;
+      // align-items: center;
     }
   }
 }

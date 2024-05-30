@@ -14,7 +14,7 @@ export const BasicLayout = ({
   return (
     <>
       {topMenuHeader}
-      <div className="main-container">
+      <div className="main-container text-3xl font-bold underline">
         <div className="musical-border">
           <img className="music-icon" src={musicNoteSvg} alt="scroll" />
           <img className="music-icon" src={codingIconSvg} alt="scroll" />

@@ -1,8 +1,8 @@
-import { TopMenuHeader } from "@/components/TopMenuHeader";
+import { useSwipeable } from "react-swipeable";
+import { TopMenuHeader } from "@/common/components/TopMenuHeader";
 import { BasicLayout } from "@/layouts/BasicLayout";
 import { menuRoutes } from "@/main";
 import "./index.scss";
-import { useSwipeable } from "react-swipeable";
 
 
 export const Home = () => {

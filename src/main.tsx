@@ -4,11 +4,11 @@ import {
   createHashRouter, RouterProvider
 } from "react-router-dom";
 import { Home } from "@/pages/Home";
-
-import "@/common/styles/typography.scss";
-import { Hobbies } from "./pages/Hobbies";
-import { Resume } from "./pages/Resume";
 import { IMenuRoute } from "./types";
+import { Resume } from "./pages/Resume";
+import { Hobbies } from "./pages/Hobbies";
+import "@/common/styles/typography.scss";
+import "./index.css";
 
 export const menuRoutes: IMenuRoute[] = [
   {

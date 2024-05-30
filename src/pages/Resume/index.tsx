@@ -1,12 +1,12 @@
-import { BasicLayout } from "@/layouts/BasicLayout";
-import { TopMenuHeader } from "../../components/TopMenuHeader/index";
-import { menuRoutes } from "@/main";
 import { useSwipeable } from "react-swipeable";
-import { IWork } from "@/types";
-import { workExperiences } from "@/data/workExperiences";
 import {
   useCallback, useState
 } from "react";
+import { BasicLayout } from "@/layouts/BasicLayout";
+import { menuRoutes } from "@/main";
+import { IWork } from "@/types";
+import { workExperiences } from "@/data/workExperiences";
+import { TopMenuHeader } from "@/common/components/TopMenuHeader";
 import "./index.scss";
 
 const JobTitleTile = ({
