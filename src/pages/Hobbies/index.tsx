@@ -1,19 +1,20 @@
 import { useSwipeable } from "react-swipeable";
 import { TopMenuHeader } from "@/common/components/TopMenuHeader";
-import { BasicLayout } from "@/layouts/BasicLayout";
+import { BasicLayout } from "@/common/components/BasicLayout";
 import { menuRoutes } from "@/main";
 import { projects } from "@/data/projects";
 import { recordings } from "@/data/recordings";
-import "./index.scss";
 
 export const ProjectRow = ({ children }: { children: React.ReactNode }) => {
-  return <div className="project-row">{children}</div>;
+  return <div className="flex flex-wrap gap-8">{children}</div>;
 };
 
 export const Hobbies = () => {
-  const handlers = useSwipeable({ onSwipedLeft: () => {
-    window.location.href = "/";
-  } });
+  const handlers = useSwipeable({
+    onSwipedLeft: () => {
+      window.location.href = "/";
+    },
+  });
 
   return (
     <div {...handlers}>
@@ -32,7 +33,7 @@ export const Hobbies = () => {
                 style={{
                   height: 150,
                   width: 150,
-                  borderRadius: 15
+                  borderRadius: 15,
                 }}
               />
             ))}
@@ -47,7 +48,7 @@ export const Hobbies = () => {
                 style={{
                   height: 150,
                   width: 150,
-                  borderRadius: 15
+                  borderRadius: 15,
                 }}
               />
             ))}

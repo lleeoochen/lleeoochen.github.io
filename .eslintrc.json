@@ -17,19 +17,25 @@
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
-    "indent": ["error", 2],
-    "linebreak-style": ["off", "unix"],
-    "quotes": ["error", "double"],
-    "semi": ["error", "always"],
-    "comma-dangle": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    // "indent": ["error", 2],
+    // "linebreak-style": ["off", "unix"],
+    // "quotes": ["error", "double"],
+    // "semi": ["error", "always"],
+    // "comma-dangle": "error",
     "react/react-in-jsx-scope": "off",
-    "object-curly-spacing": ["error", "always"],
-    "space-before-function-paren": "error",
-    "no-mixed-spaces-and-tabs": "error",
-    "no-trailing-spaces": "error",
-    "no-multi-spaces": "error",
-    "object-curly-newline": ["error", { "minProperties": 2 }],
-    "function-paren-newline": ["error", "multiline-arguments"],
+    // "object-curly-spacing": ["error", "always"],
+    // "space-before-function-paren": "error",
+    // "no-mixed-spaces-and-tabs": "error",
+    // "no-trailing-spaces": "error",
+    // "no-multi-spaces": "error",
+    // "object-curly-newline": ["error", { "minProperties": 2 }],
+    // "function-paren-newline": ["error", "multiline-arguments"],
     "import/order": [
       "error",
       {

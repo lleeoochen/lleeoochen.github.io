@@ -1,5 +1,5 @@
 import { IMenuRoute } from "@/types";
-import "./index.scss";
+import { MenuItem } from "./MenuItem";
 
 type ITopMenuHeader = {
   title: string;
@@ -12,21 +12,13 @@ export const TopMenuHeader = ({
   title,
   subtitle,
   leftRoute,
-  rightRoute
+  rightRoute,
 }: ITopMenuHeader) => {
   return (
-    <div className="top-menu-header">
-      <a className={"menu-item left-item " + (leftRoute ? "" : "invisible")} href={leftRoute?.href}>
-        <div className="title">{leftRoute?.name}</div>
-      </a>
-      <div className="menu-item main-item">
-        <div className="title">{title}
-          <div className="subtitle">{subtitle}</div>
-        </div>
-      </div>
-      <a className={"menu-item right-item " + (rightRoute ? "" : "invisible")} href={rightRoute?.href}>
-        <div className="title">{rightRoute?.name}</div>
-      </a>
+    <div className="flex flex-row gap-12 h-44 font-menu">
+      <MenuItem route={leftRoute} brRound />
+      <MenuItem title={title} subtitle={subtitle} isPrimary blRound brRound />
+      <MenuItem route={rightRoute} blRound />
     </div>
   );
 };

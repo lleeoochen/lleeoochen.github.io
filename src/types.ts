@@ -1,7 +1,7 @@
 export type IIncludePlugins = {
   jquery?: boolean;
   swiper?: boolean;
-}
+};
 
 export type ICard = {
   id?: string;
@@ -20,7 +20,7 @@ export type IWork = {
   time: string;
   logo: string;
   descriptions: string[];
-}
+};
 
 export type ISpotifyEntry = {
   id: string;

@@ -1,60 +1,73 @@
 import { useSwipeable } from "react-swipeable";
-import {
-  useCallback, useState
-} from "react";
-import { BasicLayout } from "@/layouts/BasicLayout";
+import { useCallback, useState } from "react";
+import classNames from "classnames";
+import { BasicLayout } from "@/common/components/BasicLayout";
 import { menuRoutes } from "@/main";
 import { IWork } from "@/types";
 import { workExperiences } from "@/data/workExperiences";
 import { TopMenuHeader } from "@/common/components/TopMenuHeader";
-import "./index.scss";
 
 const JobTitleTile = ({
   work,
   onWorkClicked,
-  selected
+  selected,
 }: {
   work: IWork;
   onWorkClicked(work: IWork): void;
   selected: boolean;
 }) => (
-  <div className={"work-experience flex-row " + (selected ? "selected" : "")} onClick={() => onWorkClicked(work)}>
-    <img className="company-icon" src={work.logo} />
-    <div className="job-summary flex-column">
-      <div className="job-title">{work.title}</div>
-      <div className="tenure">{work.time}</div>
-      <div className="company-title">{work.company}</div>
+  <div
+    className={classNames(
+      "job-title-tile flex flex-row rounded-2xl cursor-pointer py-1 px-3 hover:shadow-lg selected:shadow-lg",
+      {
+        selected,
+      },
+    )}
+    onClick={() => onWorkClicked(work)}
+  >
+    <img className="w-24 h-24 rounded-2xl" src={work.logo} />
+    <div className="flex flex-col flex-1 ml-5">
+      <div className="font-bold">{work.title}</div>
+      <div>{work.time}</div>
+      <div className="mt-5">{work.company}</div>
     </div>
-    {selected && <div className="selected-bar"></div>}
+    {selected && (
+      <div className="bg-job-selected-bar rounded-2xl w-2 h-4/5 my-auto ml-3"></div>
+    )}
   </div>
 );
 
 export const Resume = () => {
   const [selectedWork, setSelectedWork] = useState<IWork>();
 
-  const handlers = useSwipeable({ onSwipedRight: () => {
-    window.location.href = "/";
-  } });
+  const handlers = useSwipeable({
+    onSwipedRight: () => {
+      window.location.href = "/";
+    },
+  });
 
   const onWorkClicked = useCallback(
     (work: IWork) => {
       setSelectedWork((selectedWork) =>
-        work === selectedWork ? undefined : work);
+        work === selectedWork ? undefined : work,
+      );
     },
-    [setSelectedWork]
+    [setSelectedWork],
   );
 
   return (
     <div {...handlers}>
-      <BasicLayout topMenuHeader={
-        <TopMenuHeader
-          title="RESUME"
-          subtitle="A full stack software engineer focused on front-end and user experience."
-          leftRoute={menuRoutes[1]}
-        />
-      }>
-        <div className="resume-container flex-row">
-          <div className="flex-column work-experience-list">
+      <BasicLayout
+        topMenuHeader={
+          <TopMenuHeader
+            title="RESUME"
+            subtitle="A full stack software engineer focused on front-end and user experience."
+            leftRoute={menuRoutes[1]}
+          />
+        }
+      >
+        <div className="resume flex flex-row m-auto">
+          <div className="flex flex-col min-w-96 gap-3 max-h-[600px] overflow-auto mr-12 p-3">
             {workExperiences.map((work) => (
               <JobTitleTile
                 key={work.time}
@@ -65,7 +78,11 @@ export const Resume = () => {
             ))}
           </div>
 
-          {selectedWork && <div className="job-description">{selectedWork.descriptions.join("\n")}</div>}
+          {selectedWork && (
+            <div className="flex-1 whitespace-pre-wrap">
+              {selectedWork.descriptions.join("\n")}
+            </div>
+          )}
         </div>
       </BasicLayout>
     </div>
