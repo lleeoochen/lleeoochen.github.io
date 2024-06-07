@@ -18,10 +18,14 @@ export const MenuItem = ({
 }) => {
   return (
     <a
-      className={classNames("flex flex-row min-w-24 drop-shadow-lg", {
+      className={classNames("flex flex-row drop-shadow-lg", {
         invisible: !isPrimary && !route,
-        "rounded-bl-3xl": blRound,
-        "rounded-br-3xl": brRound,
+        "rounded-bl-3xl": isPrimary,
+        "rounded-br-3xl": isPrimary,
+        "rounded-full": !isPrimary,
+        "mr-5": blRound && !isPrimary,
+        "ml-5": brRound && !isPrimary,
+        "w-20 h-20 m-auto": !isPrimary,
         "hover:drop-shadow-xl": !isPrimary,
         "sm:bg-gradient-to-b from-menu-top to-menu-bottom": isPrimary,
         "bg-gradient-to-b from-menu-top to-menu-bottom": !isPrimary,
