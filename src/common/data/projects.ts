@@ -1,6 +1,6 @@
-import { ICard } from "@/types";
+import { IProject } from "@/types";
 
-export const projects: ICard[] = [
+export const projects: IProject[] = [
   {
     title: "Web Chess",
     description:

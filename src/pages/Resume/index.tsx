@@ -4,7 +4,7 @@ import classNames from "classnames";
 import { BasicLayout } from "@/common/components/BasicLayout";
 import { menuRoutes } from "@/main";
 import { IWork } from "@/types";
-import { workExperiences } from "@/data/workExperiences";
+import { workExperiences } from "@/common/data/workExperiences";
 import { TopMenuHeader } from "@/common/components/TopMenuHeader";
 
 const JobTitleTile = ({
@@ -18,9 +18,9 @@ const JobTitleTile = ({
 }) => (
   <div
     className={classNames(
-      "job-title-tile flex flex-row rounded-2xl cursor-pointer py-1 px-3 hover:shadow-lg selected:shadow-lg",
+      "job-title-tile flex flex-row items-center rounded-2xl cursor-pointer py-1 px-3 hover:shadow-lg",
       {
-        selected,
+        "shadow-xl": selected,
       },
     )}
     onClick={() => onWorkClicked(work)}
@@ -67,7 +67,7 @@ export const Resume = () => {
         }
       >
         <div className="resume flex flex-row m-auto">
-          <div className="flex flex-col min-w-96 gap-3 max-h-[600px] overflow-auto mr-12 p-3">
+          <div className="flex flex-col min-w-96 gap-3 overflow-auto sm:p-3 sm:mr-12">
             {workExperiences.map((work) => (
               <JobTitleTile
                 key={work.time}

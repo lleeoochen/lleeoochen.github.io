@@ -1,6 +1,6 @@
-import { ICard } from "@/types";
+import { IProject } from "@/types";
 
-export const recordings: ICard[] = [
+export const recordings: IProject[] = [
   {
     id: "elgar-cello",
     title: "Elgar Cello Concerto Mvmt1",

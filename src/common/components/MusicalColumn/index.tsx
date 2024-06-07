@@ -1,5 +1,5 @@
-import musicNoteSvg from "@/assets/images/icons/music_note.svg";
-import codingIconSvg from "@/assets/images/icons/coding_icon.svg";
+import musicNoteSvg from "@/common/assets/images/icons/music_note.svg";
+import codingIconSvg from "@/common/assets/images/icons/coding_icon.svg";
 
 export const MusicalColumn = () => {
   return (

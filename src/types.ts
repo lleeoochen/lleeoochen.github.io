@@ -3,7 +3,7 @@ export type IIncludePlugins = {
   swiper?: boolean;
 };
 
-export type ICard = {
+export type IProject = {
   id?: string;
   title: string;
   description: string;

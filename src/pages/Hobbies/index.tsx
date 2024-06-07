@@ -2,12 +2,10 @@ import { useSwipeable } from "react-swipeable";
 import { TopMenuHeader } from "@/common/components/TopMenuHeader";
 import { BasicLayout } from "@/common/components/BasicLayout";
 import { menuRoutes } from "@/main";
-import { projects } from "@/data/projects";
-import { recordings } from "@/data/recordings";
-
-export const ProjectRow = ({ children }: { children: React.ReactNode }) => {
-  return <div className="flex flex-wrap gap-8">{children}</div>;
-};
+import { projects } from "@/common/data/projects";
+import { recordings } from "@/common/data/recordings";
+import { ProjectRow } from "@/common/components/ProjectRow";
+import { shuffleArray } from "@/common/utils/listUtils";
 
 export const Hobbies = () => {
   const handlers = useSwipeable({
@@ -16,6 +14,8 @@ export const Hobbies = () => {
     },
   });
 
+  const projectAndRecordings = shuffleArray(projects, recordings);
+
   return (
     <div {...handlers}>
       <BasicLayout
@@ -23,36 +23,9 @@ export const Hobbies = () => {
           <TopMenuHeader title="HOBBIES" rightRoute={menuRoutes[1]} />
         }
       >
-        <ProjectRow>
-          {projects
-            .filter((project) => project.image)
-            .map((project) => (
-              <img
-                key={project.id}
-                src={project.image}
-                style={{
-                  height: 150,
-                  width: 150,
-                  borderRadius: 15,
-                }}
-              />
-            ))}
-        </ProjectRow>
-        <ProjectRow>
-          {recordings
-            .filter((recording) => recording.image)
-            .map((recording) => (
-              <img
-                key={recording.id}
-                src={recording.image}
-                style={{
-                  height: 150,
-                  width: 150,
-                  borderRadius: 15,
-                }}
-              />
-            ))}
-        </ProjectRow>
+        <div className="sm:mx-36">
+          <ProjectRow projects={projectAndRecordings} />
+        </div>
       </BasicLayout>
     </div>
   );

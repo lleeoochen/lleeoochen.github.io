@@ -13,6 +13,12 @@ export default {
       "menu-subtitle": "#ACACAC",
       "job-selected-bar": "#D5D5BD",
     },
+    extend: {
+      boxShadow: {
+        lg: "0px 2px 5.7px rgba(110,110,110,.43)",
+        xl: "0px 5px 10px rgba(110,110,110,.43)",
+      },
+    },
   },
   plugins: [],
 };

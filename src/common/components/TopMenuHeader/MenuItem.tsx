@@ -19,12 +19,12 @@ export const MenuItem = ({
   return (
     <a
       className={classNames(
-        "flex flex-row min-w-24 drop-shadow bg-gradient-to-b from-menu-top to-menu-bottom",
+        "flex flex-row min-w-24 drop-shadow-lg bg-gradient-to-b from-menu-top to-menu-bottom",
         {
           invisible: !isPrimary && !route,
           "rounded-bl-3xl": blRound,
           "rounded-br-3xl": brRound,
-          "hover:drop-shadow-lg": !isPrimary,
+          "hover:drop-shadow-xl": !isPrimary,
           "flex-1": isPrimary,
           "hidden sm:flex": !isPrimary, // hide side nav on phone
         },

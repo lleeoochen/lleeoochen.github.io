@@ -25,7 +25,7 @@ export const Home = () => {
           />
         }
       >
-        <div className="flex flex-1 flex-col-reverse items-center mx-0 gap-[5vw] sm:flex-row sm:mx-[10vh]">
+        <div className="flex flex-1 flex-col-reverse items-center mx-0 gap-[5vw] sm:flex-row">
           <div className="biography">
             <div className="font-bold text-3xl text-center mb-10 sm:text-left">
               Welcome to my website!
