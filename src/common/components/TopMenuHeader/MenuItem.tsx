@@ -18,17 +18,15 @@ export const MenuItem = ({
 }) => {
   return (
     <a
-      className={classNames(
-        "flex flex-row min-w-24 drop-shadow-lg bg-gradient-to-b from-menu-top to-menu-bottom",
-        {
-          invisible: !isPrimary && !route,
-          "rounded-bl-3xl": blRound,
-          "rounded-br-3xl": brRound,
-          "hover:drop-shadow-xl": !isPrimary,
-          "flex-1": isPrimary,
-          "hidden sm:flex": !isPrimary, // hide side nav on phone
-        },
-      )}
+      className={classNames("flex flex-row min-w-24 drop-shadow-lg", {
+        invisible: !isPrimary && !route,
+        "rounded-bl-3xl": blRound,
+        "rounded-br-3xl": brRound,
+        "hover:drop-shadow-xl": !isPrimary,
+        "sm:bg-gradient-to-b from-menu-top to-menu-bottom": isPrimary,
+        "bg-gradient-to-b from-menu-top to-menu-bottom": !isPrimary,
+        "flex-1": isPrimary,
+      })}
       href={route?.href}
     >
       <div

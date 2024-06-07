@@ -10,7 +10,7 @@ export const Project = ({ project }: IProjectProps) => {
     if (project.video) {
       return (
         <iframe
-          className="w-full aspect-auto rounded-t-2xl"
+          className="w-full aspect-auto rounded-t-xl"
           key={project.id}
           src={project.video}
         />
@@ -18,7 +18,7 @@ export const Project = ({ project }: IProjectProps) => {
     }
     return (
       <img
-        className="w-full aspect-auto rounded-t-2xl"
+        className="w-full aspect-auto rounded-t-xl"
         key={project.id}
         src={project.image}
       />
@@ -26,9 +26,9 @@ export const Project = ({ project }: IProjectProps) => {
   }, []);
 
   return (
-    <div className="break-inside-avoid bg-menu-top rounded-2xl mb-5 shadow-xl leading-tight cursor-pointer hover:shadow-2xl">
+    <div className="break-inside-avoid rounded-xl mb-5 shadow-xl leading-tight cursor-pointer hover:shadow-2xl">
       {media}
-      <div className="p-5">
+      <div className="p-5 pt-3">
         <div className="font-bold mb-2">{project.title}</div>
         <div>{project.description}</div>
       </div>

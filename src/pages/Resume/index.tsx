@@ -1,4 +1,3 @@
-import { useSwipeable } from "react-swipeable";
 import { useCallback, useState } from "react";
 import classNames from "classnames";
 import { BasicLayout } from "@/common/components/BasicLayout";
@@ -38,13 +37,9 @@ const JobTitleTile = ({
 );
 
 export const Resume = () => {
-  const [selectedWork, setSelectedWork] = useState<IWork>();
-
-  const handlers = useSwipeable({
-    onSwipedRight: () => {
-      window.location.href = "/";
-    },
-  });
+  const [selectedWork, setSelectedWork] = useState<IWork | undefined>(
+    workExperiences[1],
+  );
 
   const onWorkClicked = useCallback(
     (work: IWork) => {
@@ -56,35 +51,33 @@ export const Resume = () => {
   );
 
   return (
-    <div {...handlers}>
-      <BasicLayout
-        topMenuHeader={
-          <TopMenuHeader
-            title="RESUME"
-            subtitle="A full stack software engineer focused on front-end and user experience."
-            leftRoute={menuRoutes[1]}
-          />
-        }
-      >
-        <div className="resume flex flex-row m-auto">
-          <div className="flex flex-col min-w-96 gap-3 overflow-auto sm:p-3 sm:mr-12">
-            {workExperiences.map((work) => (
-              <JobTitleTile
-                key={work.time}
-                work={work}
-                onWorkClicked={onWorkClicked}
-                selected={selectedWork === work}
-              />
-            ))}
-          </div>
-
-          {selectedWork && (
-            <div className="flex-1 whitespace-pre-wrap">
-              {selectedWork.descriptions.join("\n")}
-            </div>
-          )}
+    <BasicLayout
+      topMenuHeader={
+        <TopMenuHeader
+          title="RESUME"
+          subtitle="A full stack software engineer focused on front-end and user experience."
+          leftRoute={menuRoutes[1]}
+        />
+      }
+    >
+      <div className="resume flex flex-row m-auto">
+        <div className="flex flex-col min-w-96 gap-3 overflow-auto sm:p-3 sm:mr-12">
+          {workExperiences.map((work) => (
+            <JobTitleTile
+              key={work.time}
+              work={work}
+              onWorkClicked={onWorkClicked}
+              selected={selectedWork === work}
+            />
+          ))}
         </div>
-      </BasicLayout>
-    </div>
+
+        {selectedWork && (
+          <div className="flex-1 whitespace-pre-wrap">
+            {selectedWork.descriptions.join("\n")}
+          </div>
+        )}
+      </div>
+    </BasicLayout>
   );
 };
