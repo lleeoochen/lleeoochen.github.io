@@ -26,7 +26,7 @@ export const Project = ({ project }: IProjectProps) => {
   }, []);
 
   return (
-    <div className="break-inside-avoid rounded-xl mb-2 shadow-xl leading-tight cursor-pointer sm:mb-5 hover:shadow-2xl">
+    <div className="break-inside-avoid rounded-xl mb-5 shadow-xl leading-tight cursor-pointer sm:mb-5 hover:shadow-2xl">
       {media}
       <div className="p-5 pt-3">
         <div className="font-bold mb-2">{project.title}</div>

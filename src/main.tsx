@@ -7,20 +7,26 @@ import { Resume } from "./pages/Resume";
 import { Hobbies } from "./pages/Hobbies";
 import "@/common/styles/main.css";
 
-export const menuRoutes: IMenuRoute[] = [
-  {
-    href: "#/hobbies",
-    name: "HOBBIES",
-  },
-  {
+export enum RouteName {
+  HOME = "HOME",
+  HOBBIES = "HOBBIES",
+  RESUME = "RESUME",
+}
+
+export const RouteDefinitions: Record<RouteName, IMenuRoute> = {
+  [RouteName.HOME]: {
+    name: RouteName.HOME,
     href: "#/",
-    name: "HOME",
   },
-  {
+  [RouteName.HOBBIES]: {
+    name: RouteName.HOBBIES,
+    href: "#/hobbies",
+  },
+  [RouteName.RESUME]: {
+    name: RouteName.RESUME,
     href: "#/resume",
-    name: "RESUME",
   },
-];
+};
 
 const router = createHashRouter([
   {

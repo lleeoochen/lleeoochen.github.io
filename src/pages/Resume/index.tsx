@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import classNames from "classnames";
 import { BasicLayout } from "@/common/components/BasicLayout";
-import { menuRoutes } from "@/main";
+import { RouteDefinitions } from "@/main";
 import { IWork } from "@/types";
 import { workExperiences } from "@/common/data/workExperiences";
 import { TopMenuHeader } from "@/common/components/TopMenuHeader";
@@ -56,7 +56,8 @@ export const Resume = () => {
         <TopMenuHeader
           title="RESUME"
           subtitle="A full stack software engineer focused on front-end and user experience."
-          leftRoute={menuRoutes[1]}
+          leftRoute={RouteDefinitions.HOME}
+          rightRoute={RouteDefinitions.HOBBIES}
         />
       }
     >

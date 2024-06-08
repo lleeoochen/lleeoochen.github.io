@@ -1,6 +1,6 @@
 import { TopMenuHeader } from "@/common/components/TopMenuHeader";
 import { BasicLayout } from "@/common/components/BasicLayout";
-import { menuRoutes } from "@/main";
+import { RouteDefinitions } from "@/main";
 
 export const Home = () => {
   return (
@@ -9,8 +9,8 @@ export const Home = () => {
         <TopMenuHeader
           title="WEI TUNG CHEN"
           subtitle="The ultimate multi-tasking wizard who's as skilled with code as he is with a cello."
-          leftRoute={menuRoutes[0]}
-          rightRoute={menuRoutes[2]}
+          leftRoute={RouteDefinitions.HOBBIES}
+          rightRoute={RouteDefinitions.RESUME}
         />
       }
     >

@@ -1,6 +1,6 @@
 import { TopMenuHeader } from "@/common/components/TopMenuHeader";
 import { BasicLayout } from "@/common/components/BasicLayout";
-import { menuRoutes } from "@/main";
+import { RouteDefinitions } from "@/main";
 import { projects } from "@/common/data/projects";
 import { recordings } from "@/common/data/recordings";
 import { ProjectRow } from "@/common/components/ProjectRow";
@@ -12,7 +12,11 @@ export const Hobbies = () => {
   return (
     <BasicLayout
       topMenuHeader={
-        <TopMenuHeader title="HOBBIES" rightRoute={menuRoutes[1]} />
+        <TopMenuHeader
+          title="HOBBIES"
+          leftRoute={RouteDefinitions.RESUME}
+          rightRoute={RouteDefinitions.HOME}
+        />
       }
     >
       <div className="sm:mx-36">

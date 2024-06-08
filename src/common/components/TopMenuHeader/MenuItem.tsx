@@ -6,15 +6,11 @@ export const MenuItem = ({
   isPrimary,
   title,
   subtitle,
-  blRound = false,
-  brRound = false,
 }: {
   route?: IMenuRoute;
   isPrimary?: boolean;
   title?: string;
   subtitle?: string;
-  blRound?: boolean;
-  brRound?: boolean;
 }) => {
   return (
     <a
@@ -23,8 +19,7 @@ export const MenuItem = ({
         "rounded-bl-3xl": isPrimary,
         "rounded-br-3xl": isPrimary,
         "rounded-full": !isPrimary,
-        "mr-5": blRound && !isPrimary,
-        "ml-5": brRound && !isPrimary,
+        "mx-5 sm:mx-10": !isPrimary,
         "w-20 h-20 m-auto": !isPrimary,
         "hover:drop-shadow-xl": !isPrimary,
         "sm:bg-gradient-to-b from-menu-top to-menu-bottom": isPrimary,
