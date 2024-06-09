@@ -50,7 +50,6 @@ export const Resume = () => {
       if (work !== selectedWork) {
         descriptionRef.current?.scrollIntoView({
           behavior: "smooth",
-          block: "nearest",
         });
       }
     },
@@ -58,11 +57,10 @@ export const Resume = () => {
   );
 
   const onBackClicked = useCallback(() => {
-    setSelectedWork(undefined);
     jobSelectionRef.current?.scrollIntoView({
       behavior: "smooth",
-      block: "nearest",
     });
+    setSelectedWork(undefined);
   }, []);
 
   return (
@@ -76,10 +74,10 @@ export const Resume = () => {
         />
       }
     >
-      <div className="resume flex overflow-auto">
+      <div className="resume flex snap-x snap-mandatory overflow-auto">
         <div
           ref={jobSelectionRef}
-          className="flex min-w-[calc(100vw-2.5rem)] snap-start flex-col gap-3 overflow-auto px-4 sm:mr-12 sm:min-w-96 sm:p-3"
+          className="flex min-w-[calc(100vw-2.5rem)] snap-start flex-col gap-3 overflow-auto px-4 sm:mr-12 sm:min-w-96 sm:pb-3"
         >
           {workExperiences.map((work) => (
             <JobTitleTile
