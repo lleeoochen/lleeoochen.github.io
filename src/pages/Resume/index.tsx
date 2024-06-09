@@ -45,10 +45,13 @@ export const Resume = () => {
       setSelectedWork((selectedWork) =>
         work === selectedWork ? undefined : work,
       );
-      descriptionRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-      });
+
+      if (work !== selectedWork) {
+        descriptionRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+        });
+      }
     },
     [setSelectedWork],
   );
