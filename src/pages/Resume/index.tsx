@@ -74,10 +74,10 @@ export const Resume = () => {
         />
       }
     >
-      <div className="resume flex snap-x snap-mandatory overflow-auto">
+      <div className="resume flex snap-x snap-mandatory overflow-x-auto">
         <div
           ref={jobSelectionRef}
-          className="flex min-w-[calc(100vw-2.5rem)] snap-start flex-col gap-3 overflow-auto px-4 sm:mr-12 sm:min-w-96 sm:pb-3"
+          className="flex min-w-[calc(100vw-2.5rem)] snap-start flex-col gap-3 overflow-y-auto px-4 sm:mr-12 sm:min-w-96 sm:pb-3"
         >
           {workExperiences.map((work) => (
             <JobTitleTile
@@ -92,7 +92,7 @@ export const Resume = () => {
         <div
           ref={descriptionRef}
           className={classNames(
-            "min-w-[calc(100vw-2.5rem)] sm:min-w-0 snap-start whitespace-pre-wrap",
+            "min-w-[calc(100vw-2.5rem)] sm:min-w-0 overflow-y-auto snap-start whitespace-pre-wrap",
           )}
         >
           <a className="block sm:hidden" onClick={onBackClicked}>
