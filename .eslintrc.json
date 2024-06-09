@@ -9,6 +9,7 @@
     "plugin:react/recommended",
     "plugin:import/recommended",
     "plugin:tailwindcss/recommended",
+    "plugin:react-hooks/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",

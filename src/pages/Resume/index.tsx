@@ -37,6 +37,7 @@ const JobTitleTile = ({
 );
 
 export const Resume = () => {
+  const jobSelectionRef = useRef<HTMLDivElement>(null);
   const descriptionRef = useRef<HTMLDivElement>(null);
   const [selectedWork, setSelectedWork] = useState<IWork | undefined>();
 
@@ -53,8 +54,16 @@ export const Resume = () => {
         });
       }
     },
-    [setSelectedWork],
+    [selectedWork],
   );
+
+  const onBackClicked = useCallback(() => {
+    setSelectedWork(undefined);
+    jobSelectionRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+    });
+  }, []);
 
   return (
     <BasicLayout
@@ -68,7 +77,10 @@ export const Resume = () => {
       }
     >
       <div className="resume flex overflow-auto">
-        <div className="flex min-w-[calc(100vw-2.5rem)] snap-start flex-col gap-3 overflow-auto px-4 sm:mr-12 sm:min-w-96 sm:p-3">
+        <div
+          ref={jobSelectionRef}
+          className="flex min-w-[calc(100vw-2.5rem)] snap-start flex-col gap-3 overflow-auto px-4 sm:mr-12 sm:min-w-96 sm:p-3"
+        >
           {workExperiences.map((work) => (
             <JobTitleTile
               key={work.time}
@@ -85,7 +97,12 @@ export const Resume = () => {
             "min-w-[calc(100vw-2.5rem)] sm:min-w-0 snap-start whitespace-pre-wrap",
           )}
         >
-          {selectedWork?.descriptions.join("\n")}
+          <a className="block sm:hidden" onClick={onBackClicked}>
+            {"← Back"}
+          </a>
+          <div className="mt-5 max-h-[70dvh]">
+            {selectedWork?.descriptions.join("\n")}
+          </div>
         </div>
       </div>
     </BasicLayout>
