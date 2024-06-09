@@ -45,12 +45,10 @@ export const Resume = () => {
       setSelectedWork((selectedWork) =>
         work === selectedWork ? undefined : work,
       );
-      setTimeout(() => {
-        descriptionRef.current?.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-        });
-      }, 100);
+      descriptionRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
     },
     [setSelectedWork],
   );
@@ -67,7 +65,7 @@ export const Resume = () => {
       }
     >
       <div className="resume flex overflow-auto">
-        <div className="flex min-w-[calc(100vw-2.5rem)] snap-start flex-col gap-3 overflow-auto px-4 sm:mr-12 sm:w-auto sm:min-w-96 sm:p-3">
+        <div className="flex min-w-[calc(100vw-2.5rem)] snap-start flex-col gap-3 overflow-auto px-4 sm:mr-12 sm:min-w-96 sm:p-3">
           {workExperiences.map((work) => (
             <JobTitleTile
               key={work.time}
@@ -81,8 +79,7 @@ export const Resume = () => {
         <div
           ref={descriptionRef}
           className={classNames(
-            "min-w-[calc(100vw-2.5rem)] snap-start whitespace-pre-wrap",
-            { hidden: !selectedWork },
+            "min-w-[calc(100vw-2.5rem)] sm:min-w-0 snap-start whitespace-pre-wrap",
           )}
         >
           {selectedWork?.descriptions.join("\n")}
