@@ -15,7 +15,7 @@ export const TopMenuHeader = ({
   rightRoute,
 }: ITopMenuHeader) => {
   return (
-    <div className="flex flex-row h-32 font-menu sm:h-44">
+    <div className="flex h-32 flex-row font-menu sm:h-44">
       <MenuItem route={leftRoute} />
       <MenuItem title={title} subtitle={subtitle} isPrimary />
       <MenuItem route={rightRoute} />

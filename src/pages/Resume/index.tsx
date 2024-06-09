@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import classNames from "classnames";
 import { BasicLayout } from "@/common/components/BasicLayout";
 import { RouteDefinitions } from "@/main";
@@ -17,35 +17,40 @@ const JobTitleTile = ({
 }) => (
   <div
     className={classNames(
-      "job-title-tile flex flex-row items-center rounded-2xl cursor-pointer py-1 px-3 hover:shadow-lg",
+      "job-title-tile flex flex-row items-center rounded-2xl cursor-pointer py-1 px-3 hover:drop-shadow-md",
       {
-        "shadow-xl": selected,
+        "shadow-md": selected,
       },
     )}
     onClick={() => onWorkClicked(work)}
   >
-    <img className="w-24 h-24 rounded-2xl" src={work.logo} />
-    <div className="flex flex-col flex-1 ml-5">
+    <img className="size-24 rounded-2xl" src={work.logo} />
+    <div className="ml-5 flex flex-1 flex-col">
       <div className="font-bold">{work.title}</div>
       <div>{work.time}</div>
       <div className="mt-5">{work.company}</div>
     </div>
     {selected && (
-      <div className="bg-job-selected-bar rounded-2xl w-2 h-4/5 my-auto ml-3"></div>
+      <div className="my-auto ml-3 h-4/5 w-2 rounded-2xl bg-job-selected-bar"></div>
     )}
   </div>
 );
 
 export const Resume = () => {
-  const [selectedWork, setSelectedWork] = useState<IWork | undefined>(
-    workExperiences[1],
-  );
+  const descriptionRef = useRef<HTMLDivElement>(null);
+  const [selectedWork, setSelectedWork] = useState<IWork | undefined>();
 
   const onWorkClicked = useCallback(
     (work: IWork) => {
       setSelectedWork((selectedWork) =>
         work === selectedWork ? undefined : work,
       );
+      setTimeout(() => {
+        descriptionRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+        });
+      }, 100);
     },
     [setSelectedWork],
   );
@@ -61,8 +66,8 @@ export const Resume = () => {
         />
       }
     >
-      <div className="resume flex flex-row m-auto">
-        <div className="flex flex-col min-w-96 gap-3 overflow-auto sm:p-3 sm:mr-12">
+      <div className="resume flex overflow-auto">
+        <div className="flex min-w-[calc(100vw-2.5rem)] snap-start flex-col gap-3 overflow-auto px-4 sm:mr-12 sm:w-auto sm:min-w-96 sm:p-3">
           {workExperiences.map((work) => (
             <JobTitleTile
               key={work.time}
@@ -73,11 +78,15 @@ export const Resume = () => {
           ))}
         </div>
 
-        {selectedWork && (
-          <div className="flex-1 whitespace-pre-wrap">
-            {selectedWork.descriptions.join("\n")}
-          </div>
-        )}
+        <div
+          ref={descriptionRef}
+          className={classNames(
+            "min-w-[calc(100vw-2.5rem)] snap-start whitespace-pre-wrap",
+            { hidden: !selectedWork },
+          )}
+        >
+          {selectedWork?.descriptions.join("\n")}
+        </div>
       </div>
     </BasicLayout>
   );

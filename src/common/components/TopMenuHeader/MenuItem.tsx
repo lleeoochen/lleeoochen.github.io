@@ -14,7 +14,7 @@ export const MenuItem = ({
 }) => {
   return (
     <a
-      className={classNames("flex flex-row drop-shadow-lg", {
+      className={classNames("flex flex-row drop-shadow-md", {
         invisible: !isPrimary && !route,
         "rounded-bl-3xl": isPrimary,
         "rounded-br-3xl": isPrimary,
@@ -35,7 +35,7 @@ export const MenuItem = ({
       >
         {title ?? route?.name}
         {subtitle && (
-          <div className="text-base text-menu-subtitle hidden sm:flex">
+          <div className="hidden text-base text-menu-subtitle sm:flex">
             {subtitle}
           </div>
         )}
