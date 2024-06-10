@@ -17,18 +17,18 @@ const JobTitleTile = ({
 }) => (
   <div
     className={classNames(
-      "job-title-tile flex flex-row items-center rounded-2xl cursor-pointer py-1 px-3 hover:drop-shadow-md",
+      "job-title-tile flex flex-row rounded-2xl cursor-pointer py-1 px-3 hover:drop-shadow-md",
       {
         "shadow-md": selected,
       },
     )}
     onClick={() => onWorkClicked(work)}
   >
-    <img className="size-24 rounded-2xl" src={work.logo} />
+    <img className="size-14 rounded-2xl sm:size-24" src={work.logo} />
     <div className="ml-5 flex flex-1 flex-col">
       <div className="font-bold">{work.title}</div>
       <div>{work.time}</div>
-      <div className="mt-5">{work.company}</div>
+      <div className="mt-5 hidden sm:block">{work.company}</div>
     </div>
     {selected && (
       <div className="my-auto ml-3 h-4/5 w-2 rounded-2xl bg-job-selected-bar"></div>
@@ -41,20 +41,12 @@ export const Resume = () => {
   const descriptionRef = useRef<HTMLDivElement>(null);
   const [selectedWork, setSelectedWork] = useState<IWork | undefined>();
 
-  const onWorkClicked = useCallback(
-    (work: IWork) => {
-      setSelectedWork((selectedWork) =>
-        work === selectedWork ? undefined : work,
-      );
-
-      if (work !== selectedWork) {
-        descriptionRef.current?.scrollIntoView({
-          behavior: "smooth",
-        });
-      }
-    },
-    [selectedWork],
-  );
+  const onWorkClicked = useCallback((work: IWork) => {
+    setSelectedWork(work);
+    descriptionRef.current?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }, []);
 
   const onBackClicked = useCallback(() => {
     jobSelectionRef.current?.scrollIntoView({
@@ -77,7 +69,7 @@ export const Resume = () => {
       <div className="resume flex snap-x snap-mandatory overflow-x-auto">
         <div
           ref={jobSelectionRef}
-          className="flex min-w-[calc(100vw-2.5rem)] snap-start flex-col gap-3 overflow-y-auto px-4 sm:mr-12 sm:min-w-96 sm:pb-3"
+          className="flex max-h-[calc(100dvh-15rem)] min-w-[calc(100vw-2.5rem)] snap-start flex-col gap-3 overflow-y-auto pb-4 sm:mr-12 sm:min-w-96 sm:px-4 sm:pb-3"
         >
           {workExperiences.map((work) => (
             <JobTitleTile
@@ -92,13 +84,13 @@ export const Resume = () => {
         <div
           ref={descriptionRef}
           className={classNames(
-            "min-w-[calc(100vw-2.5rem)] sm:min-w-0 overflow-y-auto snap-start whitespace-pre-wrap",
+            "min-w-[calc(100vw-2.5rem)] sm:min-w-0 snap-start whitespace-pre-wrap",
           )}
         >
           <a className="block sm:hidden" onClick={onBackClicked}>
             {"← Back"}
           </a>
-          <div className="mt-5 max-h-[70dvh]">
+          <div className="mt-5 max-h-[calc(100dvh-15rem)] overflow-y-auto">
             {selectedWork?.descriptions.join("\n")}
           </div>
         </div>

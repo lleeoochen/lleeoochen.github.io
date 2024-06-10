@@ -20,7 +20,7 @@ export const MenuItem = ({
         "rounded-br-3xl": isPrimary,
         "rounded-full": !isPrimary,
         "mx-5 sm:mx-10": !isPrimary,
-        "w-20 h-20 m-auto": !isPrimary,
+        "w-16 h-16 sm:w-20 sm:h-20 m-auto": !isPrimary,
         "hover:drop-shadow-xl": !isPrimary,
         "sm:bg-gradient-to-b from-menu-top to-menu-bottom": isPrimary,
         "bg-gradient-to-b from-menu-top to-menu-bottom": !isPrimary,
@@ -31,6 +31,7 @@ export const MenuItem = ({
       <div
         className={classNames("m-auto text-black text-center", {
           "text-3xl sm:text-5xl": isPrimary,
+          "text-[12px] sm:text-[14px]": !isPrimary,
         })}
       >
         {title ?? route?.name}
