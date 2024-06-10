@@ -19,7 +19,7 @@ export const Hobbies = () => {
         />
       }
     >
-      <div className="sm:mx-36">
+      <div className="2xl:mx-5">
         <ProjectRow projects={projectAndRecordings} />
       </div>
     </BasicLayout>

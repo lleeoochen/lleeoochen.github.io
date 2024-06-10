@@ -14,9 +14,9 @@ export const Home = () => {
         />
       }
     >
-      <div className="mx-0 flex flex-1 flex-col-reverse items-center gap-[5vw] sm:flex-row">
-        <div className="biography">
-          <div className="mb-10 text-center text-3xl font-bold sm:text-left">
+      <div className="mx-0 flex flex-1 flex-col-reverse items-center gap-[5vw] lg:flex-row lg:items-start">
+        <div className="biography text-pretty">
+          <div className="mb-10 text-center text-3xl font-bold lg:text-left">
             Welcome to my website!
           </div>
           <p>
@@ -36,7 +36,7 @@ export const Home = () => {
           </p>
         </div>
         <img
-          className="w-[50vw] sm:w-[20vw]"
+          className="w-[50vw] max-w-[300px] xl:w-[20vw] xl:max-w-none"
           src="/assets/images/welcome_profile_picture.png"
         />
       </div>

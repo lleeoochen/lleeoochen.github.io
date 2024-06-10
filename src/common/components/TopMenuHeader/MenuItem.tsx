@@ -19,10 +19,10 @@ export const MenuItem = ({
         "rounded-bl-3xl": isPrimary,
         "rounded-br-3xl": isPrimary,
         "rounded-full": !isPrimary,
-        "mx-5 sm:mx-10": !isPrimary,
-        "w-16 h-16 sm:w-20 sm:h-20 m-auto": !isPrimary,
+        "mx-5 lg:mx-10": !isPrimary,
+        "w-16 h-16 lg:w-20 lg:h-20 m-auto": !isPrimary,
         "hover:drop-shadow-xl": !isPrimary,
-        "sm:bg-gradient-to-b from-menu-top to-menu-bottom": isPrimary,
+        "lg:bg-gradient-to-b from-menu-top to-menu-bottom": isPrimary,
         "bg-gradient-to-b from-menu-top to-menu-bottom": !isPrimary,
         "flex-1": isPrimary,
       })}
@@ -30,13 +30,13 @@ export const MenuItem = ({
     >
       <div
         className={classNames("m-auto text-black text-center", {
-          "text-3xl sm:text-5xl": isPrimary,
-          "text-[12px] sm:text-[14px]": !isPrimary,
+          "text-3xl lg:text-5xl": isPrimary,
+          "text-[12px] lg:text-[14px]": !isPrimary,
         })}
       >
         {title ?? route?.name}
         {subtitle && (
-          <div className="hidden text-base text-menu-subtitle sm:flex">
+          <div className="hidden text-base text-menu-subtitle lg:flex">
             {subtitle}
           </div>
         )}

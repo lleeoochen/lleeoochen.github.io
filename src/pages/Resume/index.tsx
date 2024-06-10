@@ -69,7 +69,7 @@ export const Resume = () => {
       <div className="resume flex snap-x snap-mandatory overflow-x-auto">
         <div
           ref={jobSelectionRef}
-          className="flex max-h-[calc(100dvh-15rem)] min-w-[calc(100vw-2.5rem)] snap-start flex-col gap-3 overflow-y-auto pb-4 sm:mr-12 sm:min-w-96 sm:px-4 sm:pb-3"
+          className="flex max-h-[calc(100dvh-15rem)] min-w-[calc(100vw-2.5rem)] snap-start flex-col gap-3 overflow-y-auto pb-4 sm:mr-4 sm:min-w-96 sm:px-4 sm:pb-3"
         >
           {workExperiences.map((work) => (
             <JobTitleTile
@@ -90,7 +90,7 @@ export const Resume = () => {
           <a className="block sm:hidden" onClick={onBackClicked}>
             {"← Back"}
           </a>
-          <div className="mt-5 max-h-[calc(100dvh-15rem)] overflow-y-auto">
+          <div className="mt-5 max-h-[calc(100dvh-15rem)] overflow-y-auto text-pretty sm:mt-0">
             {selectedWork?.descriptions.join("\n")}
           </div>
         </div>
