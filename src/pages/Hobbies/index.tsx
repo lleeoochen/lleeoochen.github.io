@@ -14,6 +14,7 @@ export const Hobbies = () => {
       topMenuHeader={
         <TopMenuHeader
           title="HOBBIES"
+          subtitle="These are the fun projects and music recordings I've created."
           leftRoute={RouteDefinitions.RESUME}
           rightRoute={RouteDefinitions.HOME}
         />

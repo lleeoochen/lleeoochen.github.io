@@ -14,17 +14,12 @@ export const MenuItem = ({
 }) => {
   return (
     <a
-      className={classNames("flex flex-row drop-shadow-md", {
+      className={classNames("flex flex-row", {
         invisible: !isPrimary && !route,
-        "rounded-bl-3xl": isPrimary,
-        "rounded-br-3xl": isPrimary,
-        "rounded-full": !isPrimary,
-        "mx-5 lg:mx-10": !isPrimary,
-        "w-16 h-16 lg:w-20 lg:h-20 m-auto": !isPrimary,
-        "hover:drop-shadow-xl": !isPrimary,
-        "lg:bg-gradient-to-b from-menu-top to-menu-bottom": isPrimary,
-        "bg-gradient-to-b from-menu-top to-menu-bottom": !isPrimary,
-        "flex-1": isPrimary,
+        "hover:shadow-xl rounded-full shadow-md m-auto mx-5 w-16 h-16 lg:mx-10 lg:w-20 lg:h-20 bg-gradient-to-b from-menu-top to-menu-bottom":
+          !isPrimary,
+        "flex-1 rounded-bl-3xl rounded-br-3xl lg:bg-gradient-to-b from-menu-top to-menu-bottom lg:shadow-md":
+          isPrimary,
       })}
       href={route?.href}
     >

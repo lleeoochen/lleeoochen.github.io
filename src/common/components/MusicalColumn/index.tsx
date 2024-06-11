@@ -1,14 +1,16 @@
-import musicNoteSvg from "@/common/assets/images/icons/music_note.svg";
-import codingIconSvg from "@/common/assets/images/icons/coding_icon.svg";
+import MusicNoteSvg from "@/common/assets/images/icons/music_note.svg";
+import CodingIconSvg from "@/common/assets/images/icons/coding_icon.svg";
+
+const iconSvgCountList = Array.from(Array(5).keys());
 
 export const MusicalColumn = () => {
   return (
-    <div className="mt-2.5 hidden flex-col gap-20 lg:flex">
-      <img className="w-[3vw] max-w-12" src={musicNoteSvg} alt="scroll" />
-      <img className="w-[3vw] max-w-12" src={codingIconSvg} alt="scroll" />
-      <img className="w-[3vw] max-w-12" src={musicNoteSvg} alt="scroll" />
-      <img className="w-[3vw] max-w-12" src={musicNoteSvg} alt="scroll" />
-      <img className="w-[3vw] max-w-12" src={codingIconSvg} alt="scroll" />
+    <div className="mt-2.5 hidden h-full flex-col gap-20 text-clip lg:flex">
+      {iconSvgCountList.map((index) => (
+        <div key={index} className="w-8">
+          {index % 2 === 0 ? <MusicNoteSvg /> : <CodingIconSvg />}
+        </div>
+      ))}
     </div>
   );
 };

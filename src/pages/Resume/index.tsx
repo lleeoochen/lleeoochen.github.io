@@ -17,7 +17,7 @@ const JobTitleTile = ({
 }) => (
   <div
     className={classNames(
-      "job-title-tile flex flex-row rounded-2xl cursor-pointer py-1 px-3 hover:drop-shadow-md",
+      "job-title-tile flex flex-row rounded-2xl cursor-pointer py-1 px-3 hover:shadow-md mr-2 sm:mr-0",
       {
         "shadow-md": selected,
       },
@@ -39,7 +39,9 @@ const JobTitleTile = ({
 export const Resume = () => {
   const jobSelectionRef = useRef<HTMLDivElement>(null);
   const descriptionRef = useRef<HTMLDivElement>(null);
-  const [selectedWork, setSelectedWork] = useState<IWork | undefined>();
+  const [selectedWork, setSelectedWork] = useState<IWork | undefined>(
+    workExperiences[1],
+  );
 
   const onWorkClicked = useCallback((work: IWork) => {
     setSelectedWork(work);
@@ -66,10 +68,10 @@ export const Resume = () => {
         />
       }
     >
-      <div className="resume flex snap-x snap-mandatory overflow-x-auto">
+      <div className="resume flex snap-x snap-mandatory overflow-x-hidden">
         <div
           ref={jobSelectionRef}
-          className="flex max-h-[calc(100dvh-15rem)] min-w-[calc(100vw-2.5rem)] snap-start flex-col gap-3 overflow-y-auto pb-4 sm:mr-4 sm:min-w-96 sm:px-4 sm:pb-3"
+          className="sm:h-none flex h-[calc(100dvh-15rem)] min-w-[calc(100vw-2.5rem)] snap-start flex-col gap-3 overflow-y-auto pb-4 sm:mr-4 sm:min-w-96 sm:px-4 sm:pb-3"
         >
           {workExperiences.map((work) => (
             <JobTitleTile
@@ -90,7 +92,7 @@ export const Resume = () => {
           <a className="block sm:hidden" onClick={onBackClicked}>
             {"← Back"}
           </a>
-          <div className="mt-5 max-h-[calc(100dvh-15rem)] overflow-y-auto text-pretty sm:mt-0">
+          <div className="sm:h-none mt-5 h-[calc(100dvh-15rem)] overflow-y-auto text-pretty sm:mt-0">
             {selectedWork?.descriptions.join("\n")}
           </div>
         </div>

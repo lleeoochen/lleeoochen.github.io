@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import githubSvg from "@/common/assets/images/icons/github.svg";
+import GithubSvg from "@/common/assets/images/icons/github.svg";
 import { IProject } from "@/types";
 
 type IProjectProps = {
@@ -29,7 +29,7 @@ export const Project = ({ project }: IProjectProps) => {
   }, [project.id, project.image, project.product, project.video]);
 
   return (
-    <div className="mb-5 cursor-pointer break-inside-avoid rounded-xl bg-project-card leading-tight drop-shadow-md hover:drop-shadow-xl sm:mb-5">
+    <div className="mb-5 cursor-pointer break-inside-avoid rounded-xl bg-project-card leading-tight shadow-md hover:shadow-xl sm:mb-5">
       {media}
       <div className="px-5 py-3">
         <div>
@@ -43,7 +43,9 @@ export const Project = ({ project }: IProjectProps) => {
             rel="noreferrer"
             href={project.repository}
           >
-            <img className="my-2 size-5 object-cover" src={githubSvg} />
+            <div className="my-2 size-5">
+              <GithubSvg />
+            </div>
             GitHub
           </a>
         )}
