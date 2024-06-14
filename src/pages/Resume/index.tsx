@@ -1,59 +1,42 @@
-import { useCallback, useRef, useState } from "react";
-import classNames from "classnames";
+import { useCallback, useEffect, useRef, useState } from "react";
+import clsx from "clsx";
 import { BasicLayout } from "@/common/components/BasicLayout";
 import { RouteDefinitions } from "@/main";
 import { IWork } from "@/types";
 import { workExperiences } from "@/common/data/workExperiences";
 import { TopMenuHeader } from "@/common/components/TopMenuHeader";
+import { JobTitleTile } from "./JobTitleTile";
 
-const JobTitleTile = ({
-  work,
-  onWorkClicked,
-  selected,
-}: {
-  work: IWork;
-  onWorkClicked(work: IWork): void;
-  selected: boolean;
-}) => (
-  <div
-    className={classNames(
-      "job-title-tile flex flex-row rounded-2xl cursor-pointer py-1 px-3 hover:shadow-md mr-2 sm:mr-0",
-      {
-        "shadow-md": selected,
-      },
-    )}
-    onClick={() => onWorkClicked(work)}
-  >
-    <img className="size-14 rounded-2xl sm:size-24" src={work.logo} />
-    <div className="ml-5 flex flex-1 flex-col">
-      <div className="font-bold">{work.title}</div>
-      <div>{work.time}</div>
-      <div className="mt-5 hidden sm:block">{work.company}</div>
-    </div>
-    {selected && (
-      <div className="my-auto ml-3 h-4/5 w-2 rounded-2xl bg-job-selected-bar"></div>
-    )}
-  </div>
-);
+const isPortraitMode = () => {
+  return window.screen.orientation.type.includes("portrait");
+};
 
 export const Resume = () => {
   const jobSelectionRef = useRef<HTMLDivElement>(null);
   const descriptionRef = useRef<HTMLDivElement>(null);
-  const [selectedWork, setSelectedWork] = useState<IWork | undefined>(
-    workExperiences[1],
-  );
+  const [selectedWork, setSelectedWork] = useState<IWork | undefined>();
+
+  useEffect(() => {
+    if (!isPortraitMode()) {
+      setSelectedWork(workExperiences[1]);
+    }
+  }, []);
 
   const onWorkClicked = useCallback((work: IWork) => {
     setSelectedWork(work);
-    descriptionRef.current?.scrollIntoView({
-      behavior: "smooth",
-    });
+    if (isPortraitMode()) {
+      descriptionRef.current?.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
   }, []);
 
   const onBackClicked = useCallback(() => {
-    jobSelectionRef.current?.scrollIntoView({
-      behavior: "smooth",
-    });
+    if (isPortraitMode()) {
+      jobSelectionRef.current?.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
     setSelectedWork(undefined);
   }, []);
 
@@ -68,10 +51,10 @@ export const Resume = () => {
         />
       }
     >
-      <div className="resume flex snap-x snap-mandatory overflow-x-hidden">
+      <div className="resume flex snap-x snap-mandatory overflow-x-auto">
         <div
           ref={jobSelectionRef}
-          className="sm:h-none flex h-[calc(100dvh-15rem)] min-w-[calc(100vw-2.5rem)] snap-start flex-col gap-3 overflow-y-auto pb-4 sm:mr-4 sm:min-w-96 sm:px-4 sm:pb-3"
+          className="flex h-[calc(100dvh-15rem)] min-w-[calc(100vw-2.5rem)] snap-start flex-col gap-3 overflow-y-auto pb-4 pt-2 sm:mr-4 sm:h-full sm:min-w-[22rem] sm:px-4 sm:pb-3"
         >
           {workExperiences.map((work) => (
             <JobTitleTile
@@ -85,14 +68,14 @@ export const Resume = () => {
 
         <div
           ref={descriptionRef}
-          className={classNames(
-            "min-w-[calc(100vw-2.5rem)] sm:min-w-0 snap-start whitespace-pre-wrap",
+          className={clsx(
+            "min-w-[calc(100vw-2.5rem)] snap-start whitespace-pre-wrap sm:min-w-0",
           )}
         >
           <a className="block sm:hidden" onClick={onBackClicked}>
             {"← Back"}
           </a>
-          <div className="sm:h-none mt-5 h-[calc(100dvh-15rem)] overflow-y-auto text-pretty sm:mt-0">
+          <div className="mt-5 h-[calc(100dvh-15rem)] overflow-y-auto text-pretty sm:mt-0 sm:h-full">
             {selectedWork?.descriptions.join("\n")}
           </div>
         </div>

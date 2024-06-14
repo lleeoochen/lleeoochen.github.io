@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import clsx from "clsx";
 import { IMenuRoute } from "@/types";
 
 export const MenuItem = ({
@@ -14,19 +14,19 @@ export const MenuItem = ({
 }) => {
   return (
     <a
-      className={classNames("flex flex-row", {
+      className={clsx("flex flex-row", {
         invisible: !isPrimary && !route,
-        "hover:shadow-xl rounded-full shadow-md m-auto mx-5 w-16 h-16 lg:mx-10 lg:w-20 lg:h-20 bg-gradient-to-b from-menu-top to-menu-bottom":
+        "m-auto mx-5 size-16 rounded-3xl bg-gradient-to-b from-menu-top to-menu-bottom shadow-md hover:shadow-xl sm:mx-10 sm:size-20":
           !isPrimary,
-        "flex-1 rounded-bl-3xl rounded-br-3xl lg:bg-gradient-to-b from-menu-top to-menu-bottom lg:shadow-md":
+        "flex-1 rounded-bl-3xl rounded-br-3xl from-menu-top to-menu-bottom sm:bg-gradient-to-b sm:shadow-md":
           isPrimary,
       })}
       href={route?.href}
     >
       <div
-        className={classNames("m-auto text-black text-center", {
-          "text-3xl lg:text-5xl": isPrimary,
-          "text-[12px] lg:text-[14px]": !isPrimary,
+        className={clsx("text-black m-auto text-center", {
+          "text-2xl sm:text-5xl": isPrimary,
+          "text-[12px] sm:text-[14px]": !isPrimary,
         })}
       >
         {title ?? route?.name}

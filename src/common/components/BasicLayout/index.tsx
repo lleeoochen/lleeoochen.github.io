@@ -10,9 +10,9 @@ export const BasicLayout = ({ children, topMenuHeader }: Props) => {
   return (
     <>
       {topMenuHeader}
-      <div className="mx-0 my-5 flex justify-between lg:mx-[15vh] lg:my-32">
+      <div className="mx-0 my-5 flex justify-between sm:my-16 xl:mx-40 xl:my-24">
         <MusicalColumn />
-        <div className="w-full px-5 lg:px-[5vw]">{children}</div>
+        <div className="w-full px-5 xl:px-[5vw]">{children}</div>
         <MusicalColumn />
       </div>
     </>
