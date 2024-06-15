@@ -2,9 +2,13 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import { BasicLayout } from "@/common/components/BasicLayout";
 import { RouteDefinitions } from "@/main";
-import { IWork } from "@/types";
-import { workExperiences } from "@/common/data/workExperiences";
+import { IExperience } from "@/types";
 import { TopMenuHeader } from "@/common/components/TopMenuHeader";
+import DiplomaIcon from "@/common/assets/images/icons/diploma_icon.svg";
+import {
+  ucsbEducationExperience,
+  workExperiences,
+} from "@/common/data/experiences";
 import { JobTitleTile } from "./JobTitleTile";
 
 const isPortraitMode = () => {
@@ -14,31 +18,42 @@ const isPortraitMode = () => {
 export const Resume = () => {
   const jobSelectionRef = useRef<HTMLDivElement>(null);
   const descriptionRef = useRef<HTMLDivElement>(null);
-  const [selectedWork, setSelectedWork] = useState<IWork | undefined>();
+  const resumeContainerRef = useRef<HTMLDivElement>(null);
+
+  const [selectedExperience, setSelectedExperience] = useState<
+    IExperience | undefined
+  >();
 
   useEffect(() => {
     if (!isPortraitMode()) {
-      setSelectedWork(workExperiences[1]);
+      setSelectedExperience(workExperiences[1]);
     }
   }, []);
 
-  const onWorkClicked = useCallback((work: IWork) => {
-    setSelectedWork(work);
+  const onWorkClicked = useCallback((work: IExperience) => {
+    setSelectedExperience(work);
     if (isPortraitMode()) {
-      descriptionRef.current?.scrollIntoView({
-        behavior: "smooth",
-      });
+      if (resumeContainerRef.current) {
+        resumeContainerRef.current.scroll({ left: 500, behavior: "smooth" });
+      }
     }
   }, []);
 
   const onBackClicked = useCallback(() => {
     if (isPortraitMode()) {
-      jobSelectionRef.current?.scrollIntoView({
-        behavior: "smooth",
-      });
+      if (resumeContainerRef.current) {
+        resumeContainerRef.current.scroll({ left: 0, behavior: "smooth" });
+      }
     }
-    setSelectedWork(undefined);
+    setSelectedExperience(undefined);
   }, []);
+
+  const internshipExperiences = workExperiences.filter(
+    (workExperience) => workExperience.isInternship,
+  );
+  const fullTimeExperiences = workExperiences.filter(
+    (workExperience) => !workExperience.isInternship,
+  );
 
   return (
     <BasicLayout
@@ -51,19 +66,45 @@ export const Resume = () => {
         />
       }
     >
-      <div className="resume flex snap-x snap-mandatory overflow-x-auto">
+      <div
+        ref={resumeContainerRef}
+        className="resume flex h-full snap-x snap-mandatory overflow-x-auto sm:overflow-x-clip"
+      >
         <div
           ref={jobSelectionRef}
-          className="flex h-[calc(100dvh-15rem)] min-w-[calc(100vw-2.5rem)] snap-start flex-col gap-3 overflow-y-auto pb-4 pt-2 sm:mr-4 sm:h-full sm:min-w-[22rem] sm:px-4 sm:pb-3"
+          className="relative h-full min-w-[calc(100vw-2.5rem)] snap-start pb-4 pt-2 sm:-top-12 sm:mr-4 sm:h-full sm:min-w-[22rem] sm:px-4 sm:pb-3"
         >
-          {workExperiences.map((work) => (
-            <JobTitleTile
-              key={work.time}
-              work={work}
-              onWorkClicked={onWorkClicked}
-              selected={selectedWork === work}
-            />
-          ))}
+          <div className="relative h-full">
+            {/* Timeline background */}
+            <div className="absolute -z-10 flex size-full flex-col items-center">
+              <div className="size-4 rounded-full bg-job-selected-bar"></div>
+              <div className="absolute top-3 h-full w-1 rounded-lg bg-job-selected-bar"></div>
+            </div>
+            <div className="flex h-full select-none flex-col gap-5 py-10">
+              {fullTimeExperiences.map((work) => (
+                <JobTitleTile
+                  key={work.time}
+                  work={work}
+                  onWorkClicked={onWorkClicked}
+                  selected={selectedExperience === work}
+                />
+              ))}
+              <div
+                className="mx-auto size-12 cursor-pointer rounded-full bg-menu-top p-2 shadow-md sm:hover:shadow-lg"
+                onClick={() => onWorkClicked(ucsbEducationExperience)}
+              >
+                <DiplomaIcon />
+              </div>
+              {internshipExperiences.map((work) => (
+                <JobTitleTile
+                  key={work.time}
+                  work={work}
+                  onWorkClicked={onWorkClicked}
+                  selected={selectedExperience === work}
+                />
+              ))}
+            </div>
+          </div>
         </div>
 
         <div
@@ -75,8 +116,11 @@ export const Resume = () => {
           <a className="block sm:hidden" onClick={onBackClicked}>
             {"← Back"}
           </a>
-          <div className="mt-5 h-[calc(100dvh-15rem)] overflow-y-auto text-pretty sm:mt-0 sm:h-full">
-            {selectedWork?.descriptions.join("\n")}
+          <div className="mt-5 overflow-y-auto text-pretty sm:mt-0">
+            <div className="mb-3 text-2xl">
+              {selectedExperience?.title} at {selectedExperience?.organization}
+            </div>
+            {selectedExperience?.descriptions.join("\n")}
           </div>
         </div>
       </div>

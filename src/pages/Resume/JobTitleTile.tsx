@@ -1,13 +1,13 @@
 import clsx from "clsx";
-import { IWork } from "@/types";
+import { IWorkExperience } from "@/types";
 
 export const JobTitleTile = ({
   work,
   onWorkClicked,
   selected,
 }: {
-  work: IWork;
-  onWorkClicked(work: IWork): void;
+  work: IWorkExperience;
+  onWorkClicked(work: IWorkExperience): void;
   selected: boolean;
 }) => (
   <div
@@ -23,7 +23,7 @@ export const JobTitleTile = ({
     <div className="ml-5 flex flex-1 flex-col">
       <div className="font-bold">{work.title}</div>
       <div className="flex flex-row flex-wrap gap-x-2 sm:flex-col">
-        <div>{work.company}</div>
+        <div>{work.organization}</div>
         <div className="sm:hidden">•</div>
         <div>{work.time}</div>
       </div>

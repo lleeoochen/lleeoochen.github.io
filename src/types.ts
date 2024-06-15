@@ -13,13 +13,18 @@ export type IProject = {
   video?: string;
 };
 
-export type IWork = {
+export type IExperience = {
+  id: string;
   title: string;
-  company: string;
-  location: string;
+  organization: string;
   time: string;
-  logo: string;
   descriptions: string[];
+  logo?: string;
+};
+
+export type IWorkExperience = IExperience & {
+  location: string;
+  isInternship: boolean;
 };
 
 export type ISpotifyEntry = {

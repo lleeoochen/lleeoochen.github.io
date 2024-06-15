@@ -29,7 +29,7 @@ export const Project = ({ project }: IProjectProps) => {
   }, [project.id, project.image, project.product, project.video]);
 
   return (
-    <div className="mb-5 cursor-pointer break-inside-avoid rounded-xl bg-project-card leading-tight shadow-md hover:shadow-xl sm:mb-5">
+    <div className="mb-5 cursor-pointer select-none break-inside-avoid rounded-xl bg-project-card leading-tight shadow-md hover:shadow-xl sm:mb-5">
       {media}
       <div className="px-5 py-3">
         <div>
