@@ -30,8 +30,8 @@ export const Resume = () => {
     }
   }, []);
 
-  const onWorkClicked = useCallback((work: IExperience) => {
-    setSelectedExperience(work);
+  const onExperienceClicked = useCallback((experience: IExperience) => {
+    setSelectedExperience(experience);
     if (isPortraitMode()) {
       if (resumeContainerRef.current) {
         resumeContainerRef.current.scroll({ left: 500, behavior: "smooth" });
@@ -85,13 +85,19 @@ export const Resume = () => {
                 <JobTitleTile
                   key={work.time}
                   work={work}
-                  onWorkClicked={onWorkClicked}
+                  onWorkClicked={onExperienceClicked}
                   selected={selectedExperience === work}
                 />
               ))}
               <div
-                className="mx-auto size-12 cursor-pointer rounded-full bg-menu-top p-2 shadow-md sm:hover:shadow-lg"
-                onClick={() => onWorkClicked(ucsbEducationExperience)}
+                className={clsx(
+                  "mx-auto size-12 cursor-pointer rounded-full bg-menu-top p-2 shadow-md sm:hover:shadow-lg",
+                  {
+                    "sm:outline sm:outline-4 sm:outline-job-selected-bar":
+                      selectedExperience === ucsbEducationExperience,
+                  },
+                )}
+                onClick={() => onExperienceClicked(ucsbEducationExperience)}
               >
                 <DiplomaIcon />
               </div>
@@ -99,7 +105,7 @@ export const Resume = () => {
                 <JobTitleTile
                   key={work.time}
                   work={work}
-                  onWorkClicked={onWorkClicked}
+                  onWorkClicked={onExperienceClicked}
                   selected={selectedExperience === work}
                 />
               ))}
