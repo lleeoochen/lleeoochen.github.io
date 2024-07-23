@@ -124,7 +124,9 @@ export const Resume = () => {
           </a>
           <div className="mt-5 overflow-y-auto text-pretty sm:mt-0">
             <div className="mb-3 text-2xl">
-              {selectedExperience?.title} at {selectedExperience?.organization}
+              {selectedExperience?.title}
+              {" at "}
+              {selectedExperience?.organization}
             </div>
             {selectedExperience?.descriptions.join("\n")}
           </div>
