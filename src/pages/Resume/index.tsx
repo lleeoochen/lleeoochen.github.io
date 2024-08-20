@@ -26,7 +26,7 @@ export const Resume = () => {
 
   useEffect(() => {
     if (!isPortraitMode()) {
-      setSelectedExperience(workExperiences[1]);
+      setSelectedExperience(workExperiences[0]);
     }
   }, []);
 

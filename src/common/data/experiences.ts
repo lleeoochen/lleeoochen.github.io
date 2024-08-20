@@ -11,12 +11,19 @@ export const ucsbEducationExperience: IExperience = {
 export const workExperiences: IWorkExperience[] = [
   {
     id: "awsFEE2",
-    title: "Frontend Engineer",
+    title: "Software Engineer I & II (Frontend, Full-Stack)",
     organization: "AWS",
     location: "Seattle, WA",
     time: "Aug 2022 - Present",
     logo: "/assets/images/companies/aws.jpg",
-    descriptions: ["TBD"],
+    descriptions: [
+      "❖ Led the frontend development of Migration Hub Journeys website from scratch to beta launch under tight deadlines, and delivered multiple key features with high quality during my first 3 months.",
+      "❖ Designed a comprehensive context management system for different page scopes, that elegantly self-populates and cleans up the data for a global slide-out component.",
+      "❖ Wrote the team’s first frontend unit testing document for concepts like mocking, mounting, and testing components, and contributed numerous helper functions to make testing easier in the green field project.",
+      "❖ Mentored junior developers and interns on various frontend tools and concepts through pair programming and diagrams, allowing them to contribute greatly to the project completion.",
+      "❖ Full-stack: Developed multiple backend APIs that involved multi-service interactions and session token caching.",
+      "❖ Full-stack: Performed on-call periodically for our backend and frontend services, and independently root-caused latency, availability, and customer issues.",
+    ],
     isInternship: false,
   },
   {
