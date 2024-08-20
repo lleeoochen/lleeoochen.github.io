@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import clsx from "clsx";
 import { BasicLayout } from "@/common/components/BasicLayout";
 import { RouteDefinitions } from "@/main";
@@ -10,16 +10,13 @@ import {
   workExperiences,
 } from "@/common/data/experiences";
 import { JobTitleTile } from "./JobTitleTile";
+import { ResumeContentArea } from "./ResumeContentArea";
 
 const isPortraitMode = () => {
-  return window.screen.orientation.type.includes("portrait");
+  return window.screen.width < 640;
 };
 
 export const Resume = () => {
-  const jobSelectionRef = useRef<HTMLDivElement>(null);
-  const descriptionRef = useRef<HTMLDivElement>(null);
-  const resumeContainerRef = useRef<HTMLDivElement>(null);
-
   const [selectedExperience, setSelectedExperience] = useState<
     IExperience | undefined
   >();
@@ -32,19 +29,9 @@ export const Resume = () => {
 
   const onExperienceClicked = useCallback((experience: IExperience) => {
     setSelectedExperience(experience);
-    if (isPortraitMode()) {
-      if (resumeContainerRef.current) {
-        resumeContainerRef.current.scroll({ left: 500, behavior: "smooth" });
-      }
-    }
   }, []);
 
   const onBackClicked = useCallback(() => {
-    if (isPortraitMode()) {
-      if (resumeContainerRef.current) {
-        resumeContainerRef.current.scroll({ left: 0, behavior: "smooth" });
-      }
-    }
     setSelectedExperience(undefined);
   }, []);
 
@@ -66,14 +53,8 @@ export const Resume = () => {
         />
       }
     >
-      <div
-        ref={resumeContainerRef}
-        className="resume flex h-full snap-x snap-mandatory overflow-x-auto sm:overflow-x-clip"
-      >
-        <div
-          ref={jobSelectionRef}
-          className="relative h-full min-w-[calc(100vw-2.5rem)] snap-start pb-4 pt-2 sm:-top-12 sm:mr-4 sm:h-full sm:min-w-[22rem] sm:px-4 sm:pb-3"
-        >
+      <div className="resume flex h-full snap-x snap-mandatory content-center overflow-x-auto sm:overflow-x-clip">
+        <div className="relative h-full min-w-[calc(100vw-2.5rem)] snap-start pb-4 pt-2 sm:-top-12 sm:mr-4 sm:h-full sm:min-w-[22rem] sm:px-4 sm:pb-3">
           <div className="relative h-full">
             {/* Timeline background */}
             <div className="absolute -z-10 flex size-full flex-col items-center">
@@ -112,25 +93,10 @@ export const Resume = () => {
             </div>
           </div>
         </div>
-
-        <div
-          ref={descriptionRef}
-          className={clsx(
-            "min-w-[calc(100vw-2.5rem)] snap-start whitespace-pre-wrap sm:min-w-0",
-          )}
-        >
-          <a className="block sm:hidden" onClick={onBackClicked}>
-            {"← Back"}
-          </a>
-          <div className="mt-5 overflow-y-auto text-pretty sm:mt-0">
-            <div className="mb-3 text-2xl">
-              {selectedExperience?.title}
-              {" at "}
-              {selectedExperience?.organization}
-            </div>
-            {selectedExperience?.descriptions.join("\n")}
-          </div>
-        </div>
+        <ResumeContentArea
+          selectedExperience={selectedExperience}
+          onBackClicked={onBackClicked}
+        />
       </div>
     </BasicLayout>
   );

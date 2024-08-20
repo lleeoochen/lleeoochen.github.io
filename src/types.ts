@@ -36,4 +36,5 @@ export type ISpotifyEntry = {
 export type IMenuRoute = {
   href: string;
   name: string;
+  icon: React.ReactNode;
 };
