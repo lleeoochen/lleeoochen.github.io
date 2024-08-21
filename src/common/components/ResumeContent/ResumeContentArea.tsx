@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { IExperience } from "@/types";
+import { ResumeDescriptions } from "./ResumeDescriptions";
 
 type IResumeContentArea = {
   selectedExperience: IExperience | undefined;
@@ -22,11 +23,7 @@ export const ResumeContentArea = ({
           <div className="mb-3 text-2xl">
             {`${selectedExperience.title} at ${selectedExperience.organization}`}
           </div>
-          {selectedExperience?.descriptions.map((description, index) => (
-            <div key={index} className="mt-2">
-              {description}
-            </div>
-          ))}
+          <ResumeDescriptions descriptions={selectedExperience.descriptions} />
         </div>
       )}
     </div>

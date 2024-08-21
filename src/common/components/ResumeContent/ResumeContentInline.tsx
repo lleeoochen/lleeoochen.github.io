@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { IExperience } from "@/types";
+import { ResumeDescriptions } from "./ResumeDescriptions";
 
 type IResumeContentInline = {
   selectedExperience: IExperience | undefined;
@@ -11,11 +12,7 @@ export const ResumeContentInline = ({
 }: IResumeContentInline) => {
   return (
     <div className={clsx("w-full whitespace-pre-wrap sm:hidden sm:min-w-0")}>
-      {selectedExperience?.descriptions.map((description, index) => (
-        <div key={index} className="mt-4">
-          {description}
-        </div>
-      ))}
+      <ResumeDescriptions descriptions={selectedExperience?.descriptions} />
     </div>
   );
 };
