@@ -34,7 +34,7 @@ export const MenuItem = ({
   return (
     <a
       className={clsx(
-        "m-auto mx-5 flex size-16 flex-row rounded-full bg-gradient-to-b from-menu-top to-menu-bottom shadow-md hover:shadow-xl sm:mx-10 sm:size-20",
+        "m-auto mx-5 flex size-12 flex-row rounded-full bg-gradient-to-b from-menu-top to-menu-bottom shadow-md hover:shadow-xl sm:mx-10 sm:size-20",
         {
           invisible: !route,
         },
@@ -45,7 +45,7 @@ export const MenuItem = ({
         className={"text-black m-auto text-center text-[12px] sm:text-[14px]"}
       >
         <div className="hidden sm:block">{title ?? route?.name}</div>
-        <div className="flex size-10 sm:hidden">{route?.icon}</div>
+        <div className="flex size-8 sm:hidden">{route?.icon}</div>
         {subtitle && (
           <div className="hidden text-base text-menu-subtitle lg:flex">
             {subtitle}

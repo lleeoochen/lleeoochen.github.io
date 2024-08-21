@@ -11,7 +11,7 @@ export const ucsbEducationExperience: IExperience = {
 export const workExperiences: IWorkExperience[] = [
   {
     id: "awsFEE2",
-    title: "Frontend Engineer I & II",
+    title: "Software Engineer II",
     organization: "AWS",
     location: "Seattle, WA",
     time: "Aug 2022 - Present",

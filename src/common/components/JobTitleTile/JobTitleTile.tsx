@@ -1,11 +1,7 @@
 import clsx from "clsx";
 import { useCallback, useState } from "react";
 import { IWorkExperience } from "@/types";
-import { ResumeContentInline } from "./ResumeContentInline";
-
-const isPortraitMode = () => {
-  return window.screen.width < 640;
-};
+import { ResumeContentInline } from "../ResumeContent/ResumeContentInline";
 
 export const JobTitleTile = ({
   work,
@@ -18,27 +14,22 @@ export const JobTitleTile = ({
 }) => {
   const [showDescription, setShowDescription] = useState(false);
 
-  const _onWorkClicked = useCallback(
-    (work: IWorkExperience) => {
-      onWorkClicked(work);
-      if (isPortraitMode()) {
-        setShowDescription((_showDescription) => !_showDescription);
-      }
-    },
-    [onWorkClicked],
-  );
+  const _onWorkClicked = useCallback(() => {
+    onWorkClicked(work);
+    setShowDescription((_showDescription) => !_showDescription);
+  }, [onWorkClicked, work]);
 
   return (
     <div
       className={clsx(
-        "job-title-tile items-left mr-2 flex cursor-pointer flex-col gap-4 rounded-2xl bg-menu-top p-3 shadow-md sm:mr-0 sm:hover:shadow-lg",
+        "job-title-tile items-left mx-2 flex cursor-pointer flex-col gap-4 rounded-2xl bg-menu-top p-5 shadow-md sm:mr-0 sm:p-3 sm:hover:shadow-lg",
         {
-          "sm:outline sm:outline-4 sm:outline-job-selected-bar": selected,
+          "outline outline-4 outline-job-selected-bar": selected,
         },
       )}
-      onClick={() => _onWorkClicked(work)}
+      onClick={_onWorkClicked}
     >
-      <div className="flex flex-row">
+      <div className="flex flex-row items-center leading-6">
         <img className="size-14 rounded-2xl sm:size-16" src={work.logo} />
         <div className="ml-5 flex flex-1 flex-col">
           <div className="font-bold">{work.title}</div>
