@@ -29,7 +29,7 @@ export const JobTitleTile = ({
       )}
       onClick={_onWorkClicked}
     >
-      <div className="flex flex-row items-center leading-6">
+      <div className="flex flex-row items-center sm:leading-6">
         <img className="size-14 rounded-2xl sm:size-16" src={work.logo} />
         <div className="ml-5 flex flex-1 flex-col">
           <div className="font-bold">{work.title}</div>
