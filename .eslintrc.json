@@ -8,7 +8,7 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:import/recommended",
-    "plugin:tailwindcss/recommended",
+    // "plugin:tailwindcss/recommended",
     "plugin:react-hooks/recommended",
     "prettier"
   ],

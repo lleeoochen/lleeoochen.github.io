@@ -18,11 +18,11 @@ export const MenuItem = ({
         className="flex flex-1 flex-row rounded-b-3xl from-menu-top to-menu-bottom sm:bg-gradient-to-b sm:shadow-md"
         href={route?.href}
       >
-        <div className="text-black m-auto text-center text-2xl sm:text-5xl">
+        <div className="text-black m-auto p-5 text-center text-3xl sm:text-2xl lg:text-5xl">
           <div>{title ?? route?.name}</div>
           <div>{route?.icon}</div>
           {subtitle && (
-            <div className="hidden text-base text-menu-subtitle lg:flex">
+            <div className="hidden text-base text-menu-subtitle sm:flex">
               {subtitle}
             </div>
           )}
@@ -44,8 +44,8 @@ export const MenuItem = ({
       <div
         className={"text-black m-auto text-center text-[12px] sm:text-[14px]"}
       >
-        <div className="hidden sm:block">{title ?? route?.name}</div>
-        <div className="flex size-8 sm:hidden">{route?.icon}</div>
+        <div className="hidden lg:block">{title ?? route?.name}</div>
+        <div className="flex size-8 lg:hidden">{route?.icon}</div>
         {subtitle && (
           <div className="hidden text-base text-menu-subtitle lg:flex">
             {subtitle}

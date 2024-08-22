@@ -13,6 +13,7 @@ export default {
       "menu-subtitle": "#ACACAC",
       "job-selected-bar": "#D5D5BD",
       "project-card": "#FFFFFF",
+      "accent-color": "#C0C0A5",
     },
   },
   plugins: [],
