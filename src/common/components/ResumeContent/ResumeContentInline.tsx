@@ -4,7 +4,6 @@ import { ResumeDescriptions } from "./ResumeDescriptions";
 
 type IResumeContentInline = {
   selectedExperience: IExperience | undefined;
-  onBackClicked(): void;
 };
 
 export const ResumeContentInline = ({

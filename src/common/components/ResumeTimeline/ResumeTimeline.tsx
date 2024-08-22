@@ -47,7 +47,7 @@ export const ResumeTimeline = ({
           ))}
           <EducationTile
             education={ucsbEducationExperience}
-            onClicked={onExperienceClicked}
+            onClick={onExperienceClicked}
             selected={selectedExperience === ucsbEducationExperience}
           />
           {internshipExperiences.map((work) => (

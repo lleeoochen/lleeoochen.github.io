@@ -9,7 +9,7 @@ export const Modal = ({ children, className }: IModal) => {
   return (
     <Portal
       className={
-        "fixed top-0 flex size-full bg-soft-white transition-[visibility] ease-in-out " +
+        "fixed top-0 flex size-full bg-bg-page-color transition-[visibility] ease-in-out " +
         className
       }
     >

@@ -1,7 +1,6 @@
-import clsx from "clsx";
-import { useCallback, useState } from "react";
 import { IWorkExperience } from "@/types";
 import { ResumeContentInline } from "../ResumeContent/ResumeContentInline";
+import { ExperienceTile } from "./ExperienceTile";
 
 export const JobTitleTile = ({
   work,
@@ -12,22 +11,13 @@ export const JobTitleTile = ({
   onWorkClicked(work: IWorkExperience): void;
   selected: boolean;
 }) => {
-  const [showDescription, setShowDescription] = useState(false);
-
-  const _onWorkClicked = useCallback(() => {
-    onWorkClicked(work);
-    setShowDescription((_showDescription) => !_showDescription);
-  }, [onWorkClicked, work]);
-
   return (
-    <div
-      className={clsx(
-        "job-title-tile items-left mx-2 flex cursor-pointer flex-col gap-4 rounded-2xl bg-menu-top p-5 shadow-md sm:mr-0 sm:p-3 sm:hover:shadow-lg",
-        {
-          "outline outline-4 outline-job-selected-bar": selected,
-        },
-      )}
-      onClick={_onWorkClicked}
+    <ExperienceTile
+      className="mx-2 sm:mr-0 sm:p-3"
+      experience={work}
+      onClick={onWorkClicked}
+      selected={selected}
+      expandedContent={<ResumeContentInline selectedExperience={work} />}
     >
       <div className="flex flex-row items-center sm:leading-6">
         <img className="size-14 rounded-2xl sm:size-16" src={work.logo} />
@@ -40,15 +30,9 @@ export const JobTitleTile = ({
           </div>
         </div>
         {selected && (
-          <div className="my-auto ml-3 hidden h-9 w-2 rounded-2xl bg-job-selected-bar sm:block"></div>
+          <div className="my-auto ml-3 hidden h-9 w-2 rounded-2xl bg-accent-color sm:block"></div>
         )}
       </div>
-      {showDescription && (
-        <ResumeContentInline
-          selectedExperience={work}
-          onBackClicked={() => undefined}
-        />
-      )}
-    </div>
+    </ExperienceTile>
   );
 };

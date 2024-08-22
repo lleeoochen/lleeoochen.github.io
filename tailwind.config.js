@@ -7,13 +7,18 @@ export default {
       menu: ["Julius Sans One", "sans-serif"],
     },
     colors: {
-      "soft-white": "#F4F4E2",
+      "accent-color": "#D5D5BD",
+      "bg-content-color": "#FFFFF5",
+      "bg-page-color": "#F4F4E2",
+
+      // Menu colors
       "menu-top": "#FFFFF5",
       "menu-bottom": "#F5F5E4",
       "menu-subtitle": "#ACACAC",
-      "job-selected-bar": "#D5D5BD",
-      "project-card": "#FFFFFF",
-      "accent-color": "#C0C0A5",
+    },
+    outlineWidth: {
+      normal: "3px",
+      thick: "4px",
     },
   },
   plugins: [],

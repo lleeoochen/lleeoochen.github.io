@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { IMenuRoute } from "@/types";
+import { outlineNormalClsx } from "@/common/utils/commonStylings";
 
 export const MenuItem = ({
   route,
@@ -34,23 +35,19 @@ export const MenuItem = ({
   return (
     <a
       className={clsx(
-        "m-auto mx-5 flex size-12 flex-row rounded-full bg-gradient-to-b from-menu-top to-menu-bottom shadow-md hover:shadow-xl sm:mx-10 sm:size-20",
+        "bg-bg-content-color m-auto mx-5 flex size-12 flex-row rounded-full shadow-md hover:shadow-xl sm:mx-10 sm:size-20",
+        outlineNormalClsx,
         {
           invisible: !route,
         },
       )}
       href={route?.href}
     >
-      <div
-        className={"text-black m-auto text-center text-[12px] sm:text-[14px]"}
-      >
-        <div className="hidden lg:block">{title ?? route?.name}</div>
-        <div className="flex size-8 lg:hidden">{route?.icon}</div>
-        {subtitle && (
-          <div className="hidden text-base text-menu-subtitle lg:flex">
-            {subtitle}
-          </div>
-        )}
+      <div className={"m-auto"}>
+        <div className="m-auto flex size-8">{route?.icon}</div>
+        <div className="hidden text-center text-[12px] font-bold text-accent-color sm:text-[0.7rem] lg:block">
+          {title ?? route?.name}
+        </div>
       </div>
     </a>
   );

@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { IExperience } from "@/types";
+import { TextContentPanel } from "../ContentPanel/TextContentPanel";
 import { ResumeDescriptions } from "./ResumeDescriptions";
 
 type IResumeContentArea = {
@@ -19,12 +20,12 @@ export const ResumeContentArea = ({
       )}
     >
       {selectedExperience && (
-        <div className="mt-5 overflow-y-auto text-pretty rounded-2xl bg-menu-top p-8 shadow-md sm:mt-0">
+        <TextContentPanel className="mt-5 overflow-y-auto sm:mt-0">
           <div className="mb-3 text-2xl">
             {`${selectedExperience.title} at ${selectedExperience.organization}`}
           </div>
           <ResumeDescriptions descriptions={selectedExperience.descriptions} />
-        </div>
+        </TextContentPanel>
       )}
     </div>
   );
