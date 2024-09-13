@@ -19,7 +19,9 @@ export const EducationTile = ({
       experience={education}
       onClick={onClick}
       selected={selected}
-      expandedContent={education.organization}
+      expandedContent={
+        <div className="sm:hidden">{education.organization}</div>
+      }
     >
       <div className="size-8">
         <DiplomaIcon />
