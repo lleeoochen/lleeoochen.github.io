@@ -17,8 +17,8 @@ export const workExperiences: IWorkExperience[] = [
     time: "Aug 2022 - Present",
     logo: "/assets/images/companies/aws.jpg",
     descriptions: [
-      "Led the frontend development of Migration Hub Journeys website from scratch to beta launch under tight deadlines, and delivered multiple key features with high quality during the first 3 months.",
-      "Built a task kanban board with drag-and-drop and filtering capabilities, and optimized the performance by fetching data in parallel and infinite scrolling that loads more data on the fly.",
+      "Led the frontend development of Migration Hub Journeys website from scratch to beta launch under tight deadlines in my first 3 months there, and delivered multiple key features all the way to the full GA launch a year later. The service currently has more than 200 active business clients.",
+      "Built a task kanban board feature with drag-and-drop and filtering capabilities, and optimized the page performance by fetching data in parallel and infinite scrolling that loads more data on the fly.",
       "Designed a React context management system for different levels of a page, that elegantly self-populates and cleans up the data for a globally shared slide-out component.",
       "Set up frontend testing framework and alarming for Migration Hub Journeys, and documented concepts like mocking, mounting, and testing components to make testing our React components more consistent and painless.",
       "Mentored junior developers and interns on various frontend tools and concepts through pair programming and diagrams, allowing them to contribute greatly to the project completion.",
