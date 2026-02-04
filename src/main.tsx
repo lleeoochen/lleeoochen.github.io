@@ -16,7 +16,8 @@ export enum RouteName {
   RESUME = "RESUME",
 }
 
-export const RouteDefinitions: Record<RouteName, IMenuRoute> = {
+// Forward declaration to resolve circular dependency
+const routeDefinitionsWithoutNavigation: Record<RouteName, IMenuRoute> = {
   [RouteName.HOME]: {
     name: RouteName.HOME,
     href: "#/",
@@ -31,6 +32,25 @@ export const RouteDefinitions: Record<RouteName, IMenuRoute> = {
     name: RouteName.RESUME,
     href: "#/resume",
     icon: <ResumeIconSvg />,
+  },
+};
+
+// Complete route definitions with navigation
+export const RouteDefinitions: Record<RouteName, IMenuRoute & { leftRoute: IMenuRoute; rightRoute: IMenuRoute }> = {
+  [RouteName.HOME]: {
+    ...routeDefinitionsWithoutNavigation[RouteName.HOME],
+    leftRoute: routeDefinitionsWithoutNavigation[RouteName.HOBBIES],
+    rightRoute: routeDefinitionsWithoutNavigation[RouteName.RESUME],
+  },
+  [RouteName.HOBBIES]: {
+    ...routeDefinitionsWithoutNavigation[RouteName.HOBBIES],
+    leftRoute: routeDefinitionsWithoutNavigation[RouteName.RESUME],
+    rightRoute: routeDefinitionsWithoutNavigation[RouteName.HOME],
+  },
+  [RouteName.RESUME]: {
+    ...routeDefinitionsWithoutNavigation[RouteName.RESUME],
+    leftRoute: routeDefinitionsWithoutNavigation[RouteName.HOME],
+    rightRoute: routeDefinitionsWithoutNavigation[RouteName.HOBBIES],
   },
 };
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BasicLayout } from "@/common/components/BasicLayout";
 import { ResumeTimeline } from "@/common/components/ResumeTimeline/ResumeTimeline";
 import { TopMenuHeader } from "@/common/components/TopMenuHeader";
-import { RouteDefinitions } from "@/main";
+import { RouteName } from "@/main";
 import { IExperience } from "@/types";
 import { ResumeContentArea } from "../../common/components/ResumeContent/ResumeContentArea";
 
@@ -17,8 +17,7 @@ export const Resume = () => {
         <TopMenuHeader
           title="RESUME"
           subtitle="A full stack software engineer focused on front-end and user experience."
-          leftRoute={RouteDefinitions.HOME}
-          rightRoute={RouteDefinitions.HOBBIES}
+          currentRoute={RouteName.RESUME}
         />
       }
     >

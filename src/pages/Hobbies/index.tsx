@@ -1,13 +1,14 @@
 import { TopMenuHeader } from "@/common/components/TopMenuHeader";
 import { BasicLayout } from "@/common/components/BasicLayout";
-import { RouteDefinitions } from "@/main";
+import { RouteName } from "@/main";
 import { projects } from "@/common/data/projects";
 import { recordings } from "@/common/data/recordings";
 import { ProjectRow } from "@/common/components/ProjectRow";
 import { shuffleArray } from "@/common/utils/listUtils";
+import { useMemo } from "react";
 
 export const Hobbies = () => {
-  const projectAndRecordings = shuffleArray(projects, recordings);
+  const projectAndRecordings = useMemo(() => shuffleArray(projects, recordings), []);
 
   return (
     <BasicLayout
@@ -15,8 +16,7 @@ export const Hobbies = () => {
         <TopMenuHeader
           title="HOBBIES"
           subtitle="These are the fun projects and music recordings I've created."
-          leftRoute={RouteDefinitions.RESUME}
-          rightRoute={RouteDefinitions.HOME}
+          currentRoute={RouteName.HOBBIES}
         />
       }
     >

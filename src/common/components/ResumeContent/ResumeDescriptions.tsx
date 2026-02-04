@@ -7,7 +7,11 @@ export const ResumeDescriptions = ({ descriptions }: IResumeDescriptions) => {
     <>
       {descriptions?.map((description, index) => (
         <div key={index} className="mt-2 flex gap-2">
-          <div className="select-none">❖</div>
+          {
+            description.startsWith("Service")
+              ? undefined
+              : <div className="select-none">❖</div>
+          }
           <div>{description}</div>
         </div>
       ))}
